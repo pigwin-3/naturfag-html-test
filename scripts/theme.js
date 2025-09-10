@@ -5,7 +5,7 @@ console.log('theme id = ' + theme_id);
 var t0 = performance.now();
 
 //fetches the catagorys from the api¨
-fetch('/theme/' + theme_id)
+fetch('/quiz/' + theme_id + '/main.json')
     .then((response) => response.json())
     .then(
         
