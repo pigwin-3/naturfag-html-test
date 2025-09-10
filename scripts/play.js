@@ -12,6 +12,7 @@ async function startGame(gameId) {
     const startTime = Date.now();
     localStorage.setItem('gameStartTime', startTime.toString());
     localStorage.setItem('gameId', currentGameId);
+
     
     // Clear previous answers
     userAnswers = [];
@@ -20,6 +21,7 @@ async function startGame(gameId) {
         // Use dataService to get questions
         const questionsData = await window.dataService.getQuestions(currentGameId);
         gameQuestions = questionsData.slice(0, -1); // Remove timing data
+
         
         if (gameQuestions && gameQuestions.length > 0) {
             currentQuestionIndex = 0;
@@ -30,6 +32,7 @@ async function startGame(gameId) {
         }
     } catch (error) {
         console.error('Error loading quiz data:', error);
+
         await loadQuestionsDirectly();
     }
 }
@@ -65,9 +68,11 @@ function displayQuestion(question) {
     main.innerHTML = `
         <div class="top2">
             <div class="statement">${question.qn}</div>
+
         </div>
         <div class="options-container">
             ${optionsHtml}
+
         </div>
         <div class="feedback-container" id="feedback"></div>
         <div class="bottom">Spørsmål ${currentQuestionIndex + 1} av ${gameQuestions.length}</div>
@@ -92,6 +97,7 @@ function checkAnswer(userChoice) {
     // Show feedback
     showFeedback(isCorrect, userChoice);
 }
+
 
 function showFeedback(correct, userChoice) {
     const feedbackDiv = document.getElementById('feedback');
@@ -140,12 +146,14 @@ function endGame() {
     const correct = userAnswers.filter(answer => answer.isCorrect).length;
     const total = userAnswers.length;
     
+
     // Generate summary HTML
     let summaryHtml = `
         <div class="top4">
             <div class="title">Spill ferdig!</div>
             <div class="text">Du fikk ${correct} av ${total} riktige</div>
             <div class="text">Tid brukt: ${Math.round(duration / 1000)} sekunder</div>
+
             <div id="result">
     `;
     

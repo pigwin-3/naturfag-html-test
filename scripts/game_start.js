@@ -9,6 +9,7 @@ function game(game_id)
 
     var Temp = '<div class="title">Spill</div>';
     Temp += '<div class="top1">'
+  
     Temp += '<button class="btn2" onClick="startGame(\'' + game_id + '\')">Start spill</button>'
     //stops preformanse timer
     var t1 = performance.now();
