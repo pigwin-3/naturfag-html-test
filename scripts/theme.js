@@ -3,9 +3,9 @@ function themeGet(theme_id)
 console.log('theme id = ' + theme_id);
 //starts preformanse monitor
 var t0 = performance.now();
-var api = conf('api')
+
 //fetches the catagorys from the api¨
-fetch(api + '/theme/' + theme_id)
+fetch('/theme/' + theme_id)
     .then((response) => response.json())
     .then(
         
