@@ -2,20 +2,24 @@ let currentQuestion = null;
 let gameQuestions = [];
 let currentQuestionIndex = 0;
 let currentGameId = null;
+let userAnswers = [];
 
 async function startGame(gameId) {
     currentGameId = gameId || currentGameId;
     console.log('Starting game with ID:', currentGameId);
     
-    // Use localStorage for timing instead of API
+    // Use localStorage for timing
     const startTime = Date.now();
     localStorage.setItem('gameStartTime', startTime.toString());
     localStorage.setItem('gameId', currentGameId);
     
+    // Clear previous answers
+    userAnswers = [];
+    
     try {
-        // Use dataService to get questions for the current theme
+        // Use dataService to get questions
         const questionsData = await window.dataService.getQuestions(currentGameId);
-        gameQuestions = questionsData.slice(0, -1); // Remove the timing data from the end
+        gameQuestions = questionsData.slice(0, -1); // Remove timing data
         
         if (gameQuestions && gameQuestions.length > 0) {
             currentQuestionIndex = 0;
@@ -26,7 +30,6 @@ async function startGame(gameId) {
         }
     } catch (error) {
         console.error('Error loading quiz data:', error);
-        // Fallback to direct file loading if dataService fails
         await loadQuestionsDirectly();
     }
 }
@@ -49,54 +52,74 @@ async function loadQuestionsDirectly() {
 
 function displayQuestion(question) {
     const main = document.getElementById('main');
+    
+    let optionsHtml = '';
+    question.options.forEach((option, index) => {
+        optionsHtml += `
+            <button class="option-btn" onclick="checkAnswer(${index + 1})">
+                ${index + 1}: ${option}
+            </button>
+        `;
+    });
+    
     main.innerHTML = `
         <div class="top2">
             <div class="statement">${question.qn}</div>
-            <div class="img" style="background-image: url(${question.img});"><div class="imgsrc">Kjilde: ${question.srcimg}</div></div>
         </div>
-        <div class="low">
-            <button class="btntru" onclick="checkAnswer(true)">sant</button>
-            <button class="btnfal" onclick="checkAnswer(false)">usant</button>
+        <div class="options-container">
+            ${optionsHtml}
         </div>
+        <div class="feedback-container" id="feedback"></div>
+        <div class="bottom">Spørsmål ${currentQuestionIndex + 1} av ${gameQuestions.length}</div>
     `;
 }
 
-function checkAnswer(userAnswer) {
-    const correct = currentQuestion.trufal === "1";
-    const isCorrect = userAnswer === correct;
+function checkAnswer(userChoice) {
+    const isCorrect = userChoice === currentQuestion.answer;
     
-    // Store result in localStorage
-    let gameResults = JSON.parse(localStorage.getItem('gameResults') || '[]');
-    gameResults.push({
+    // Store user answer
+    userAnswers.push({
         questionId: currentQuestion.qnID,
-        correct: isCorrect,
-        timestamp: Date.now()
+        questionText: currentQuestion.qn,
+        userChoice,
+        correctAnswer: currentQuestion.answer,
+        correctText: currentQuestion.options[currentQuestion.answer - 1],
+        userText: currentQuestion.options[userChoice - 1],
+        isCorrect,
+        explanation: currentQuestion.explanation
     });
-    localStorage.setItem('gameResults', JSON.stringify(gameResults));
     
     // Show feedback
-    showFeedback(isCorrect, currentQuestion.fact);
+    showFeedback(isCorrect, userChoice);
 }
 
-function showFeedback(correct, fact) {
-    const main = document.getElementById('main');
-    const isLastQuestion = currentQuestionIndex >= gameQuestions.length - 1;
+function showFeedback(correct, userChoice) {
+    const feedbackDiv = document.getElementById('feedback');
+    const correctAnswer = currentQuestion.answer;
+    const correctText = currentQuestion.options[correctAnswer - 1];
     
-    main.innerHTML = `
-        <div class="top3">
-            <div class="imgbox">
-                <div class="img2" style="background-image: url(${currentQuestion.img});"><div class="imgsrc">Kjilde: ${currentQuestion.srcimg}</div></div>
+    if (correct) {
+        feedbackDiv.innerHTML = `
+            <div class="feedback correct">
+                <h3>Riktig!</h3>
+                <p>${currentQuestion.explanation}</p>
+                <button class="next-btn" onclick="${currentQuestionIndex < gameQuestions.length - 1 ? 'nextQuestion()' : 'endGame()'}">
+                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'}
+                </button>
             </div>
-            <div class="fax">
-                <div class="${correct ? 'trufax' : 'falfax'}">${correct ? 'Riktig!' : 'Feil'}</div>
-                <div class="text">${fact}</div>
+        `;
+    } else {
+        feedbackDiv.innerHTML = `
+            <div class="feedback incorrect">
+                <h3>Galt :(</h3>
+                <p>Det riktige svaret er ${correctAnswer}: ${correctText}</p>
+                <p>${currentQuestion.explanation}</p>
+                <button class="next-btn" onclick="${currentQuestionIndex < gameQuestions.length - 1 ? 'nextQuestion()' : 'endGame()'}">
+                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'}
+                </button>
             </div>
-        </div>
-        <div class="low2">
-            <button class="btnnex" onclick="${isLastQuestion ? 'endGame()' : 'nextQuestion()'}">${isLastQuestion ? 'Ferdig' : 'neste'}</button>
-        </div>
-        <div class="bottom">fact sorse: ${currentQuestion.srcfact}</div>
-    `;
+        `;
+    }
 }
 
 function nextQuestion() {
@@ -114,21 +137,46 @@ function endGame() {
     const startTime = parseInt(localStorage.getItem('gameStartTime'));
     const duration = endTime - startTime;
     
-    const gameResults = JSON.parse(localStorage.getItem('gameResults') || '[]');
-    const correct = gameResults.filter(r => r.correct).length;
-    const total = gameResults.length;
+    const correct = userAnswers.filter(answer => answer.isCorrect).length;
+    const total = userAnswers.length;
     
-    const main = document.getElementById('main');
-    main.innerHTML = `
+    // Generate summary HTML
+    let summaryHtml = `
         <div class="top4">
             <div class="title">Spill ferdig!</div>
             <div class="text">Du fikk ${correct} av ${total} riktige</div>
             <div class="text">Tid brukt: ${Math.round(duration / 1000)} sekunder</div>
+            <div id="result">
+    `;
+    
+    // Add each question summary
+    userAnswers.forEach((answer, index) => {
+        const questionNumber = index + 1;
+        
+        summaryHtml += `
+            <div class="question-summary">
+                <div class="question-text">${questionNumber}. ${answer.questionText}</div>
+                <div class="answer-details">
+                    <span>Riktig svar: ${answer.correctAnswer}. ${answer.correctText}</span>
+                    <span>Du svarte: ${answer.userChoice}. ${answer.userText}</span>
+                </div>
+                <div class="explanation">${answer.explanation}</div>
+                <div class="result-icon">
+                    <img src="icon/cor${answer.isCorrect ? '1' : '0'}.svg" alt="checkmark" width="24px">
+                </div>
+            </div>
+        `;
+    });
+    
+    summaryHtml += `
+            </div>
         </div>
         <div class="low2">
-            <button class="btnfin" onclick="start()">hovedside</button>
+            <button class="btnfin" onclick="start()">Hovedside</button>
         </div>
     `;
+    
+    document.getElementById("main").innerHTML = summaryHtml;
     
     // Clear game data
     localStorage.removeItem('gameStartTime');
