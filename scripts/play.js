@@ -7,21 +7,25 @@ async function startGame() {
     localStorage.setItem('gameId', gameId);
     
     try {
-        // Load question data locally instead of from API
-        const response = await fetch(`quiz/${themeId}/${themes[gameId - 1].file}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/time/start
+        // Use local timing or remove if not needed
+        
+        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/qn/1
+        // Use local JSON file
+        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
         const data = await response.json();
         
-        if (data.questions && data.questions.length > 0) {
-            currentQuestion = data.questions[0];
+        // Use the questions from the local JSON
+        const questions = data.questions;
+        
+        if (questions && questions.length > 0) {
+            currentQuestion = questions[0];
             displayQuestion(currentQuestion);
         } else {
             console.error('No questions found in data');
         }
     } catch (error) {
-        console.error('Error loading question:', error);
+        console.error('Error loading local quiz data:', error);
     }
 }
 
@@ -73,12 +77,13 @@ function showFeedback(correct, fact) {
 async function nextQuestion() {
     // Load next question or end game
     try {
-        const response = await fetch(`quiz/${themeId}/${themes[gameId - 1].file}`);
+        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
         const data = await response.json();
         
-        const currentIndex = data.questions.findIndex(q => q.qnID === currentQuestion.qnID);
-        if (currentIndex < data.questions.length - 1) {
-            currentQuestion = data.questions[currentIndex + 1];
+        const questions = data.questions;
+        const currentIndex = questions.findIndex(q => q.qnID === currentQuestion.qnID);
+        if (currentIndex < questions.length - 1) {
+            currentQuestion = questions[currentIndex + 1];
             displayQuestion(currentQuestion);
         } else {
             endGame();
