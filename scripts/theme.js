@@ -18,7 +18,7 @@ fetch('quiz/' + theme_id + '/main.json')
                 items = data;
             } else {
                 //if data is an object, extract items and api time differently
-                items = data.items || data.categories || Object.values(data).filter(item => typeof item === 'object');
+                items = data.themes || data.items || data.categories || Object.values(data).filter(item => typeof item === 'object');
                 api = data.api || data.responseTime || 0;
             }
             
