@@ -51,37 +51,56 @@ class DataService {
     async getQuestions(themeId) {
         const startTime = performance.now();
         
-        // Find the theme to get the file path
-        const categoriesData = await this.loadJSON('quiz/index.json');
-        let themeFile = null;
-        let categoryFolder = null;
-        
-        for (const category of categoriesData.categories) {
-            const themesData = await this.loadJSON(`quiz/${category.folder}/main.json`);
-            const theme = themesData.themes.find(t => t.ID == themeId);
-            if (theme) {
-                themeFile = theme.file;
-                categoryFolder = category.folder;
-                break;
+        try {
+            // Find the theme to get the file path
+            const categoriesData = await this.loadJSON('quiz/index.json');
+            let themeFile = null;
+            let categoryFolder = null;
+            
+            for (const category of categoriesData.categories) {
+                const themesData = await this.loadJSON(`quiz/${category.folder}/main.json`);
+                const theme = themesData.themes.find(t => t.ID == themeId);
+                if (theme) {
+                    themeFile = theme.file;
+                    categoryFolder = category.folder;
+                    break;
+                }
             }
+            
+            if (!themeFile) {
+                throw new Error(`Theme ${themeId} not found`);
+            }
+            
+            // Load questions from the specific file
+            const questionsData = await this.loadJSON(`quiz/${categoryFolder}/${themeFile}`);
+            let questions = questionsData.questions.filter(q => q.themeID == themeId);
+            
+            // Ensure questions have the expected format (options, answer, explanation)
+            questions = questions.map(q => {
+                // If old format, convert to new format
+                if (!q.options && (q.trufal !== undefined)) {
+                    return {
+                        ...q,
+                        options: ["Sant", "Usant"],
+                        answer: q.trufal === "1" ? 1 : 2,
+                        explanation: q.fact || "No explanation provided"
+                    };
+                }
+                return q;
+            });
+            
+            // Shuffle questions for randomness
+            for (let i = questions.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [questions[i], questions[j]] = [questions[j], questions[i]];
+            }
+            
+            const loadTime = performance.now() - startTime;
+            return [...questions, loadTime];
+        } catch (error) {
+            console.error("Error in getQuestions:", error);
+            return [[], performance.now() - startTime];
         }
-        
-        if (!themeFile) {
-            throw new Error(`Theme ${themeId} not found`);
-        }
-        
-        // Load questions from the specific file
-        const questionsData = await this.loadJSON(`quiz/${categoryFolder}/${themeFile}`);
-        let questions = questionsData.questions.filter(q => q.themeID == themeId);
-        
-        // Shuffle questions for randomness
-        for (let i = questions.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [questions[i], questions[j]] = [questions[j], questions[i]];
-        }
-        
-        const loadTime = performance.now() - startTime;
-        return [...questions, loadTime];
     }
 
     async getQuestionsWithAnswers(themeId) {
