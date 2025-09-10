@@ -1,4 +1,4 @@
-async function startGame() {
+async function startGame(gameId) {
     console.log(gameId);
     
     // Use localStorage for timing instead of API
@@ -7,16 +7,12 @@ async function startGame() {
     localStorage.setItem('gameId', gameId);
     
     try {
-        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/time/start
-        // Use local timing or remove if not needed
+        // Use dataService to get questions for the current theme
+        const questionsData = await window.dataService.getQuestions(gameId);
         
-        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/qn/1
-        // Use local JSON file
-        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
-        const data = await response.json();
-        
-        // Use the questions from the local JSON
-        const questions = data.questions;
+        // questionsData is an array with questions and load time as last element
+        const loadTime = questionsData.pop();
+        const questions = questionsData;
         
         if (questions && questions.length > 0) {
             currentQuestion = questions[0];
@@ -25,7 +21,7 @@ async function startGame() {
             console.error('No questions found in data');
         }
     } catch (error) {
-        console.error('Error loading local quiz data:', error);
+        console.error('Error loading quiz data:', error);
     }
 }
 
@@ -77,10 +73,13 @@ function showFeedback(correct, fact) {
 async function nextQuestion() {
     // Load next question or end game
     try {
-        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
-        const data = await response.json();
+        const gameId = localStorage.getItem('gameId');
+        const questionsData = await window.dataService.getQuestions(gameId);
         
-        const questions = data.questions;
+        // questionsData is an array with questions and load time as last element
+        const loadTime = questionsData.pop();
+        const questions = questionsData;
+        
         const currentIndex = questions.findIndex(q => q.qnID === currentQuestion.qnID);
         if (currentIndex < questions.length - 1) {
             currentQuestion = questions[currentIndex + 1];

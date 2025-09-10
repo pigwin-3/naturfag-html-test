@@ -1,16 +1,25 @@
 function checkGame(truFal)
 {
-    var timeID = JSON.parse(localStorage.getItem('timeID'));
     const qn = JSON.parse(localStorage.getItem('TheQN'));
     var qnNum = Number(localStorage.getItem('qnNum'));
+    
     if (qn == null) {
-        console.log("no :(")
+        console.log("no question data :(")
     }
     else {
-        /* /time/spørsmålets id/spørsmål numeret 0-9/hva svarte du/tids id */
-        console.log(qn.qnID + "/" + qnNum + "/" + truFal + "/" + timeID.id)
-        fetch(api + "/time/" + qn.qnID + "/" + qnNum + "/" + truFal + "/" + timeID.id)
+        // Store result in localStorage instead of API
+        let gameResults = JSON.parse(localStorage.getItem('gameResults') || '[]');
+        gameResults.push({
+            questionId: qn.qnID,
+            userAnswer: truFal,
+            correct: qn.trufal == truFal,
+            timestamp: Date.now()
+        });
+        localStorage.setItem('gameResults', JSON.stringify(gameResults));
+        
+        console.log('Answer stored:', qn.qnID + "/" + qnNum + "/" + truFal)
         localStorage.removeItem('TheQN');
+        
         if (qnNum != 9) {
             var qnNum = qnNum + 1
             localStorage.setItem('qnNum', qnNum);

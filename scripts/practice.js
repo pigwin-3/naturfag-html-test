@@ -1,59 +1,62 @@
-function startPracticeGame(theme_id)
+async function startPracticeGame(theme_id)
 {
     console.log(theme_id);
-    //starts preformanse monitor
+    //starts performance monitor
     var t0 = performance.now();
-    var api = conf('api')
     document.getElementById("main").innerHTML = "";
-    //fetches the catagorys from the api¨
-    fetch(api + '/qnawns/' + theme_id)
-        .then((response) => response.json())
-        .then(
-            
-            data => {
-                //extracts the api response time from the json
-                let api = data.pop();
-                console.log('fetched from api ' + api + ' ms');
-                //(for practiceSum())
-                var sumStore=[]
-                localStorage.setItem('SumStore', JSON.stringify(sumStore));
-                //gets the first question
-                let qn = data.pop();
-                //puts the json values into local storage as a strings
-                localStorage.setItem('TheQN', JSON.stringify(qn));
-                localStorage.setItem('TheData', JSON.stringify(data));
-                localStorage.setItem('progres', JSON.stringify({"cor" : 0,"wro" : 0}));
-
-                var Temp = '<div class="progressbar">' + '<div class="progressbarcor" style="width: ' + '0' + '0%;"></div>' + '<div class="progressbarwro" style="width: ' + '0' + '0%;"></div>' + '</div>';
-                    Temp += '<div class="top2">';
-                    Temp += '<div class="statement">' + qn.qn + '</div>';
-                    Temp += '<div class="img" style="background-image: url(' + qn.img + ');"><div class="imgsrc">Kjilde: ' + qn.srcimg + '</div></div>';
-                    Temp += '</div>';
-                    Temp += '<div class="low"><button class="btntru" onClick="fax(`1`)">sant</button><button class="btnfal" onClick="fax(`0`)">usant</button></div>';
-                    Temp += '</div>'
-                //stops preformanse timer
-                var t1 = performance.now();
-                //makes the bottem bar with preformanse
-                Temp += '</div><!-- 1/2 1 = hovedside, katgori velging, spillsiden 2 = spørsmålet, sanheten --> <div class="bottom"> api response: ' + (~~api) + ' ms page build: ' + (~~(t1 - t0)) + ' ms</div>';
-                //inserts the html into the document
-                document.getElementById("main").innerHTML = Temp;
-            }
-        );
-}
-
-async function startPractice() {
-    console.log('Starting practice for game id:', gameId);
     
     try {
-        // Load question data locally
-        const response = await fetch(`quiz/${themeId}/${themes[gameId - 1].file}`);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
+        // Use dataService to get questions with answers for practice
+        const questionsData = await window.dataService.getQuestionsWithAnswers(theme_id);
         
-        if (data.questions && data.questions.length > 0) {
-            practiceQuestions = data.questions;
+        // questionsData is an array with questions and load time as last element
+        const loadTime = questionsData.pop();
+        const data = questionsData;
+        
+        console.log('fetched from local data ' + loadTime + ' ms');
+        
+        //(for practiceSum())
+        var sumStore=[]
+        localStorage.setItem('SumStore', JSON.stringify(sumStore));
+        //gets the first question
+        let qn = data[0];
+        //puts the json values into local storage as strings
+        localStorage.setItem('TheQN', JSON.stringify(qn));
+        localStorage.setItem('TheData', JSON.stringify(data));
+        localStorage.setItem('progres', JSON.stringify({"cor" : 0,"wro" : 0}));
+
+        var Temp = '<div class="progressbar">' + '<div class="progressbarcor" style="width: ' + '0' + '0%;"></div>' + '<div class="progressbarwro" style="width: ' + '0' + '0%;"></div>' + '</div>';
+            Temp += '<div class="top2">';
+            Temp += '<div class="statement">' + qn.qn + '</div>';
+            Temp += '<div class="img" style="background-image: url(' + qn.img + ');"><div class="imgsrc">Kjilde: ' + qn.srcimg + '</div></div>';
+            Temp += '</div>';
+            Temp += '<div class="low"><button class="btntru" onClick="fax(`1`)">sant</button><button class="btnfal" onClick="fax(`0`)">usant</button></div>';
+            Temp += '</div>'
+        //stops performance timer
+        var t1 = performance.now();
+        //makes the bottom bar with performance
+        Temp += '</div><!-- 1/2 1 = hovedside, kategori velging, spillsiden 2 = spørsmålet, sanheten --> <div class="bottom"> data load: ' + (~~loadTime) + ' ms page build: ' + (~~(t1 - t0)) + ' ms</div>';
+        //inserts the html into the document
+        document.getElementById("main").innerHTML = Temp;
+    } catch (error) {
+        console.error('Error loading practice questions:', error);
+        document.getElementById("main").innerHTML = '<div class="title">Error</div><div class="top1"><p>Could not load practice questions.</p></div>';
+    }
+}
+
+async function startPractice(themeId) {
+    console.log('Starting practice for theme id:', themeId);
+    
+    try {
+        // Use dataService to get questions
+        const questionsData = await window.dataService.getQuestions(themeId);
+        
+        // questionsData is an array with questions and load time as last element
+        const loadTime = questionsData.pop();
+        const questions = questionsData;
+        
+        if (questions && questions.length > 0) {
+            practiceQuestions = questions;
             currentPracticeIndex = 0;
             displayPracticeQuestion(practiceQuestions[currentPracticeIndex]);
         } else {
