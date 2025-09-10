@@ -1,47 +1,62 @@
-async function startGame() {
-    console.log(gameId);
+let currentQuestion = null;
+let gameQuestions = [];
+let currentQuestionIndex = 0;
+let currentGameId = null;
+
+async function startGame(gameId) {
+    currentGameId = gameId || currentGameId;
+    console.log('Starting game with ID:', currentGameId);
     
     // Use localStorage for timing instead of API
     const startTime = Date.now();
     localStorage.setItem('gameStartTime', startTime.toString());
-    localStorage.setItem('gameId', gameId);
+    localStorage.setItem('gameId', currentGameId);
     
     try {
-        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/time/start
-        // Use local timing or remove if not needed
+        // Use dataService to get questions for the current theme
+        const questionsData = await window.dataService.getQuestions(currentGameId);
+        gameQuestions = questionsData.slice(0, -1); // Remove the timing data from the end
         
-        // Instead of: GET https://pigwin-3.github.io/naturfag-html-test/null/qn/1
-        // Use local JSON file
-        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
-        const data = await response.json();
-        
-        // Use the questions from the local JSON
-        const questions = data.questions;
-        
-        if (questions && questions.length > 0) {
-            currentQuestion = questions[0];
+        if (gameQuestions && gameQuestions.length > 0) {
+            currentQuestionIndex = 0;
+            currentQuestion = gameQuestions[currentQuestionIndex];
             displayQuestion(currentQuestion);
         } else {
-            console.error('No questions found in data');
+            console.error('No questions found for theme ID:', currentGameId);
         }
     } catch (error) {
-        console.error('Error loading local quiz data:', error);
+        console.error('Error loading quiz data:', error);
+        // Fallback to direct file loading if dataService fails
+        await loadQuestionsDirectly();
+    }
+}
+
+async function loadQuestionsDirectly() {
+    try {
+        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
+        const data = await response.json();
+        gameQuestions = data.questions;
+        
+        if (gameQuestions && gameQuestions.length > 0) {
+            currentQuestionIndex = 0;
+            currentQuestion = gameQuestions[currentQuestionIndex];
+            displayQuestion(currentQuestion);
+        }
+    } catch (error) {
+        console.error('Error loading questions directly:', error);
     }
 }
 
 function displayQuestion(question) {
     const main = document.getElementById('main');
     main.innerHTML = `
-        <div class="question-container">
-            <h2>${question.qn}</h2>
-            <div class="question-image">
-                <img src="${question.img}" alt="${question.srcimg}">
-                <p class="image-source">${question.srcimg}</p>
-            </div>
-            <div class="answer-buttons">
-                <button onclick="checkAnswer(true)" class="answer-btn true-btn">Sant</button>
-                <button onclick="checkAnswer(false)" class="answer-btn false-btn">Usant</button>
-            </div>
+        <div class="top2">
+            <div class="statement">${question.qn}</div>
+            <div class="img" style="background-image: url(${question.img});"><div class="imgsrc">Kjilde: ${question.srcimg}</div></div>
+        </div>
+        <div class="low">
+            <button class="btntru" onclick="checkAnswer(true)">sant</button>
+            <button class="btnfal" onclick="checkAnswer(false)">usant</button>
         </div>
     `;
 }
@@ -65,31 +80,32 @@ function checkAnswer(userAnswer) {
 
 function showFeedback(correct, fact) {
     const main = document.getElementById('main');
+    const isLastQuestion = currentQuestionIndex >= gameQuestions.length - 1;
+    
     main.innerHTML = `
-        <div class="feedback-container">
-            <h2>${correct ? 'Riktig!' : 'Feil!'}</h2>
-            <p class="fact">${fact}</p>
-            <button onclick="nextQuestion()" class="next-btn">Neste spørsmål</button>
+        <div class="top3">
+            <div class="imgbox">
+                <div class="img2" style="background-image: url(${currentQuestion.img});"><div class="imgsrc">Kjilde: ${currentQuestion.srcimg}</div></div>
+            </div>
+            <div class="fax">
+                <div class="${correct ? 'trufax' : 'falfax'}">${correct ? 'Riktig!' : 'Feil'}</div>
+                <div class="text">${fact}</div>
+            </div>
         </div>
+        <div class="low2">
+            <button class="btnnex" onclick="${isLastQuestion ? 'endGame()' : 'nextQuestion()'}">${isLastQuestion ? 'Ferdig' : 'neste'}</button>
+        </div>
+        <div class="bottom">fact sorse: ${currentQuestion.srcfact}</div>
     `;
 }
 
-async function nextQuestion() {
-    // Load next question or end game
-    try {
-        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
-        const data = await response.json();
-        
-        const questions = data.questions;
-        const currentIndex = questions.findIndex(q => q.qnID === currentQuestion.qnID);
-        if (currentIndex < questions.length - 1) {
-            currentQuestion = questions[currentIndex + 1];
-            displayQuestion(currentQuestion);
-        } else {
-            endGame();
-        }
-    } catch (error) {
-        console.error('Error loading next question:', error);
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < gameQuestions.length) {
+        currentQuestion = gameQuestions[currentQuestionIndex];
+        displayQuestion(currentQuestion);
+    } else {
+        endGame();
     }
 }
 
@@ -104,11 +120,13 @@ function endGame() {
     
     const main = document.getElementById('main');
     main.innerHTML = `
-        <div class="game-summary">
-            <h2>Spill ferdig!</h2>
-            <p>Du fikk ${correct} av ${total} riktige</p>
-            <p>Tid brukt: ${Math.round(duration / 1000)} sekunder</p>
-            <button onclick="start()" class="home-btn">Tilbake til start</button>
+        <div class="top4">
+            <div class="title">Spill ferdig!</div>
+            <div class="text">Du fikk ${correct} av ${total} riktige</div>
+            <div class="text">Tid brukt: ${Math.round(duration / 1000)} sekunder</div>
+        </div>
+        <div class="low2">
+            <button class="btnfin" onclick="start()">hovedside</button>
         </div>
     `;
     
