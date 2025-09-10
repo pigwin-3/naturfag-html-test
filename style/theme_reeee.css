@@ -1,0 +1,120 @@
+/*https://randomwordgenerator.com/color.php*/
+#main{
+
+    background-color: #924E7D;
+    color: #4D5645;
+}
+/* for hovedside, katgori velging, spillsiden */
+.top1 {
+    background-color: #4C514A;
+    border: 0.4vh solid #78858B;
+}
+
+.box {
+    background-color: #B5B8B1;
+    border: 0.4vh solid black;
+}
+.btn {
+    background-color: #4A192C;
+    border: 0.4vh solid #755C48;
+    color: #D53032;
+}
+.btn:hover {
+    border: 0.4vh solid #826C34;
+    background-color: #8A9597;
+}
+/*for spillsiden*/
+.btn2 {
+    background-color: #f5f5f5;
+    border: 0.4vh solid #294b98;
+    color: #151515;
+}
+.btn2:hover {
+    border: 0.4vh solid #89AC76;
+    background-color: #705335;
+}
+.imgsrc {
+    background-color: rgba(250, 235, 215, 0.5);
+    color: #E4A010;
+}
+/* for spørsmålet*/
+.top2 {
+    background-color: #6F4F28;
+    border: 0.4vh solid #C35831;
+}
+.img{
+    background-color: #633A34;
+}
+.btntru{
+    border: 0.4vh solid #705335;
+    background-color: #316650;
+    color: #F39F18;
+}
+.btntru:hover {
+    border: 0.4vh solid #F75E25;
+    background-color: #909090;
+}
+.btnfal{
+    border: 0.4vh solid #7F7679;
+    background-color: #332F2C;
+    color: #4C2F27;
+}
+.btnfal:hover {
+border: 0.4vh solid #F4A900;
+background-color: #B44C43;
+}
+.progressbar {
+    background-color: #606E8C;
+}
+.progressbarcor {
+    background-color: #D84B20;
+}
+.progressbarwro {
+    background-color: #D0D0D0;
+}
+.progressbarprog {
+    background-color: #343B29;
+}
+.top3 {
+    background-color: #EAE6CA;
+    border: 0.4vh solid #79553D;
+}
+.img2 {
+    background-color: #9D9101;
+}
+.trufax{
+    color: #C93C20;
+}
+.falfax{
+    color: #A2231D;
+}
+.btnnex{
+    border: 0.4vh solid #4E3B31;
+    background-color: #C6A664;
+    color: #F44611;
+}
+.btnnex:hover {
+    border: 0.4vh solid #343E40;
+    background-color: #8673A1;
+}
+.top4 {
+    background-color: #252850;
+    border: 0.4vh solid #231A24;
+}
+.btnfin{
+    border: 0.4vh solid #BEBD7F;
+    background-color: #F4F4F4;
+    color: #AF2B1E;
+}
+.btnfin:hover {
+    border: 0.4vh solid #4C2F27;
+    background-color: #193737;
+}
+#result {
+    background-color: #f5f5f5;
+    border: 0.4vh solid #294b98;
+}
+.sumuary {
+    background-color: #332F2C;
+    border: 0.4vh solid #A18594;
+}

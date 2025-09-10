@@ -1,0 +1,524 @@
+body{
+    margin: 0%;
+}
+.toggleTheme {
+    background-color: rgba(255, 255, 255, 0);
+    height: 10vh;
+    width: 10vh;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border: 10vh;
+    overflow: hidden;
+}
+#toggleThemeimg {
+    width: 100%;
+    opacity: 0.4;
+    transition: all 0.5s ease-in;
+}
+.toggleTheme:hover #toggleThemeimg {
+    transition: all 0.1s ease-in;
+    opacity: 1;
+}
+.goHome {
+    background-color: rgba(255, 255, 255, 0);
+    height: 10vh;
+    width: 10vh;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border: 10vh;
+    overflow: hidden;
+}
+#goHomeimg {
+    width: 100%;
+    opacity: 0.5;
+    transition: all 0.5s ease-in;
+}
+.goHome:hover #goHomeimg {
+    transition: all 0.1s ease-in;
+    opacity: 1;
+}
+/* box har alt i seg */
+#main{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+/* for alt*/
+.title{
+    text-align: center;
+    padding: 1vh;
+    font-size: 10vh;
+    font-weight: 700;
+}
+.bottom{
+    margin-top: auto;
+    padding-bottom: 0.5vh;
+    text-align: center;
+    font-size: 2.5vh;
+}
+/* for hovedside, katgori velging, spillsiden */
+.top1 {
+    display: block;
+    height: 75vh;
+    width: 80%;
+    margin: auto;
+    overflow: auto;
+    scroll-behavior: smooth;
+    border-radius: 3vh;
+    padding-top: 5px;
+}
+/* fjern scrollbar */
+.top1::-webkit-scrollbar {
+    display: none;
+}
+
+/* fjern den for IE, Edge og Firefox */
+.top1 {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* for hovedside, katgori velging*/
+.box {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    border-radius: 1.5vh;
+    height: 20vh;
+    width: 98%;
+    margin: 0.5%;
+    border: 0.4vh solid black;
+}
+.box-1n3 {
+    padding: 1%;
+    width: 25%;
+    justify-content: center;
+    font-size: 5vh;
+    font-weight: 700;
+    text-align: center;
+}
+.box-info {
+    padding: 1%;
+    width: 50%;
+    font-size: 2.5vh;
+}
+.btn {
+    font-size: 6vh;
+    font-weight: 600;
+    height: 8vh;
+    width: 99%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    text-align: center;
+    transition: 0.2s;
+    border-radius: 1.5vh;
+    cursor: pointer;
+}
+/*for spillsiden*/
+.btn2 {
+    font-size: 12vh;
+    font-weight: 600;
+    height: 14vh;
+    width: 50%;
+    margin-left: 10vh;
+    margin-right: 10vh;
+    margin: auto;
+    margin-top: 15vh;
+    text-align: center;
+    transition: 0.2s;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    transform: translateX(50%);
+}
+
+/* for spørsmålet, sanheten */
+.low{
+    display: flex;
+    flex-direction: row;
+    height: 15vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 0%;
+}
+.imgsrc {
+    position: absolute;
+    bottom: 0;
+    border-radius: 0.5vh;
+    padding: 1px;
+    font-size: 2vh;
+}
+/* for spørsmålet*/
+.top2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 0%;
+    border-radius: 3vh;
+}
+.img{
+    position: relative;
+    height: 45vh;
+    width: 45vh;
+    max-width: 80%;
+    border-radius: 0.5vh;
+    background-size: cover;
+}
+.statement{
+    text-align: center;
+    padding: 1vh;
+    font-size: 5vh;
+    font-weight: 700;
+    margin-top: 0%;
+}
+.btntru{
+    margin-top: 0.50%;
+    border-radius: 1.5vh;
+    height: 95%;
+    width: 100%;
+    margin-left: 2.5%;
+    margin-right: 1.25%;
+    text-align: center;
+    font-size: 11vh;
+    font-weight: 500;
+    transition: 0.2s;
+    max-width: 92%;
+    cursor: pointer;
+}
+.btnfal{
+    margin-top: 0.50%;
+    border-radius: 1.5vh;
+    height: 95%;
+    width: 100%;
+    margin-left: 1.25%;
+    margin-right: 2.5%;
+    text-align: center;
+    font-size: 11vh;
+    font-weight: 500;
+    transition: 0.2s;
+    max-width: 92%;
+    cursor: pointer;
+}
+.progressbar {
+    display: flex;
+    flex-direction: row;
+    width: 60vw;
+    height: 5vh;
+    overflow: hidden;
+    border-radius: 1vh;
+    margin-top: 2vh;
+    align-self: center;
+}
+.progressbarcor {
+    height: 100%;
+}
+.progressbarwro {
+    height: 100%;
+}
+.progressbarprog {
+    height: 100%;
+}
+/*for sanheten*/
+.low2{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    height: 15vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 0%;
+}
+.top3 {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 0%;
+    border-radius: 3vh;
+}
+.imgbox {
+    display: flex;
+    height: 80vh;
+    width: 60%;
+    justify-content: center;
+}
+.img2{
+    height: 65vh;
+    width: 65vh;
+    max-width: 45%;
+    position: absolute;
+    bottom: 25.9%;
+    border-radius: 2.5vh;
+    margin: auto;
+    margin-bottom: 2.5vh;
+}
+.fax{
+    height: 80vh;
+    width: 40%;  
+}
+.trufax{
+    font-size: 11vh;
+    font-weight: 750;
+    text-align: center;
+}
+.falfax{
+    font-size: 11vh;
+    font-weight: 750;
+    text-align: center;
+}
+/*.text brukes også i sumuery*/
+.text{
+    text-align-last: center;
+    font-size: 2.5vh;
+}
+.btnnex{
+    margin-top: 0.50%;
+    border-radius: 1.5vh;
+    height: 95%;
+    width: 40vh;
+    text-align: center;
+    font-size: 11vh;
+    font-weight: 500;
+    transition: 0.2s;
+    max-width: 92%;
+    cursor: pointer;
+}
+/*for sumuery*/
+.top4 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 0%;
+    border-radius: 3vh;
+}
+.btnfin{
+    margin-top: 0.50%;
+    border-radius: 1.5vh;
+    height: 95%;
+    width: 50vh;
+    text-align: center;
+    font-size: 10vh;
+    font-weight: 500;
+    transition: 0.2s;
+    max-width: 92%;
+    cursor: pointer;
+}
+#result {
+    width: 60vh;
+    max-width: 80vw;
+    height: 60vh;
+    margin: auto;
+    margin-bottom: 1vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    border-radius: 1.5vh;
+}
+/* fjern scrollbar */
+#result::-webkit-scrollbar {
+    display: none;
+}
+
+/* fjern den for IE, Edge og Firefox */
+#result {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.sumuary {
+    display: flex;
+    flex-direction: row;
+    min-height: 6.9vh;
+    width: 91%;
+    margin: 1.75%;
+    padding: 1vh;
+}
+.summary_txtbox{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    min-height: 4.20vh;
+}
+.summary_txt_trufal {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+.sumuary_txt_sml {
+    text-align: center;
+    width: 80%;
+    min-height: 4.20vh;
+    padding-top: 1vh;
+    padding-left: 0.1vh;
+    padding-right: 0.1vh;
+    line-height: 3vh;
+    font-size: 1vh;
+}
+.sumuary_txt {
+    text-align: center;
+    width: 80%;
+    min-height: 4.20vh;
+    padding-top: 1vh;
+    padding-left: 0.1vh;
+    padding-right: 0.1vh;
+    line-height: 3vh;
+    font-size: 2.5vh;
+}
+.sumuary_txt_big {
+    text-align: center;
+    width: 80%;
+    min-height: 4.20vh;
+    padding-top: 1vh;
+    padding-left: 0.1vh;
+    padding-right: 0.1vh;
+    line-height: 3vh;
+    font-size: 2.5vh;
+}
+@media  all and (max-width: 175vh) {
+    .statement{
+        font-size: 5vh;
+    }
+}
+@media  all and (max-width: 110vh) {
+    .top3 {
+        flex-direction: column;
+    }
+    .fax{
+        width: 100%;  
+    }
+    .imgbox {
+        width: 100%;
+    }
+    .img2{
+        height: 35vh;
+        width: 35vh;
+        max-height: 45%;
+        max-width: 80%;
+        margin-bottom: 35vh;
+    }
+    .btn2 {
+        font-size: 10vh;
+        font-weight: 500;
+        width: 80%;
+        transform: translateX(10%);
+    }
+    .box-1n3 {
+        font-size: 5vh;
+    }
+    .statement{
+        font-size: 4vh;
+    }
+    .img{
+        height: 40vw;
+        width: 40vw;
+    }
+}
+@media  all and (max-width: 80vh) {
+    .low{
+        flex-direction: column;
+        height: 15vh;
+    }
+    .btntru{
+        margin-left: 1.25%;
+        margin-right: 1.25%;
+    }
+    .btnfal{
+        margin-left: 1.25%;
+        margin-right: 1.25%;
+    }
+    .img{
+        height: 35vw;
+        width: 35vw;
+        max-width: 80%;
+    }
+    .top2 {
+        height: 50vh;
+        width: 90%;
+    }
+    .imgsrc {
+        font-size: 1vh;
+    }
+    .trufax{
+        font-size: 7vh;
+        font-weight: 750;
+    }
+    .falfax{
+        font-size: 7vh;
+        font-weight: 750;
+    }
+    .text{
+        font-size: 2vh;
+    }
+    .box-info {
+        font-size: 2vh;
+    }
+    .box {
+        flex-direction: column;
+        height: 40vh;
+    }
+    .box-1n3 {
+        width: 100%;
+        font-size: 6vh;
+    }
+    .box-info {
+        width: 100%;
+    }
+    .btnfin {
+        font-size: 7vh;
+        height: 90%;
+        width: 40vh;
+    }
+}
+@media  all and (max-width: 70vh) {
+    .img{
+        height: 50vw;
+        width: 50vw;
+    }
+    .img2{
+        height: 30vh;
+        width: 30vh;
+        margin-bottom: 40vh;
+    }
+    .title{
+        font-size: 8vh;
+        font-weight: 600;
+    }
+    .statement{
+        font-size: 3vh;
+        font-weight: 600;
+    }
+}
+@media  all and (max-width: 60vh) {
+    .img{
+        height: 60vw;
+        width: 60vw;
+    }
+    .text{
+        font-size: 1.5vh;
+    }
+    .btn2 {
+        font-size: 8vh;
+    }
+    .title{
+        font-size: 6vh;
+    }
+    .box-1n3 {
+        font-size: 5vh;
+    }
+    .btnfin {
+        font-size: 6vh;
+        height: 85%;
+        width: 35vh;
+    }
+}
