@@ -10,14 +10,24 @@ fetch('quiz/' + theme_id + '/main.json')
     .then(
         
         data => {
-            //extracts the api response time from the json
-            let api = data.pop();
+            //check if data is an array or object
+            let items, api;
+            if (Array.isArray(data)) {
+                //extracts the api response time from the json (assuming it's the last element)
+                api = data.pop();
+                items = data;
+            } else {
+                //if data is an object, extract items and api time differently
+                items = data.items || data.categories || Object.values(data).filter(item => typeof item === 'object');
+                api = data.api || data.responseTime || 0;
+            }
+            
             console.log('fetched from api ' + api + ' ms');
-            if (data.length > 0) {
+            if (items && items.length > 0) {
             //makes the top of the website
             var Temp = '<div class="title">Feilinfo</div><div class="top1">';
             //repeats this untill all of the data is in boxes
-            data.forEach((itemData) => {
+            items.forEach((itemData) => {
                 Temp += '<div class="box">';
                 Temp += '<div class="box-1n3">' + itemData.Name + '</div>';
                 Temp += '<div class="box-info">' + itemData.about + '</div>';
@@ -32,5 +42,8 @@ fetch('quiz/' + theme_id + '/main.json')
             document.getElementById("main").innerHTML = Temp;
             }
         }
-    );
+    )
+    .catch(error => {
+        console.error('Error fetching theme data:', error);
+    });
 }
