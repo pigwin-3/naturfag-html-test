@@ -16,7 +16,7 @@ function start()
                 console.log('fetched from api ' + api + ' ms');
                 if (data.length > 0) {
                 //makes the top of the website
-                var Temp = '<div class="title">Feilinfo</div><div class="top1">';
+                var Temp = '<div class="title">startfunc.js</div><div class="top1">';
                 //repeats this untill all of the data is in boxes
                 data.forEach((itemData) => {
                     Temp += '<div class="box">';
