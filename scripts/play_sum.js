@@ -1,5 +1,8 @@
 function sumGame()
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('sumGame');
+    }
     var timeID = JSON.parse(localStorage.getItem('timeID'));
 
     console.log(timeID.id)

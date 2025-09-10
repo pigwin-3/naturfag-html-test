@@ -1,5 +1,8 @@
 function checkGame(truFal)
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('checkGame');
+    }
     var timeID = JSON.parse(localStorage.getItem('timeID'));
     const qn = JSON.parse(localStorage.getItem('TheQN'));
     var qnNum = Number(localStorage.getItem('qnNum'));

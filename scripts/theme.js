@@ -1,8 +1,11 @@
 function themeGet(theme_id)
 {
-console.log('theme id = ' + theme_id);
-//starts preformanse monitor
-var t0 = performance.now();
+    if (localStorage.getItem('debug') === '1') {
+        console.log('themeGet');
+    }
+    console.log('theme id = ' + theme_id);
+    //starts preformanse monitor
+    var t0 = performance.now();
 
 //fetches the catagorys from the api¨
 fetch('quiz/' + theme_id + '/main.json')

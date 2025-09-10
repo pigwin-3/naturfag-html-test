@@ -1,5 +1,8 @@
 function game(game_id)
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('game');
+    }
     console.log('game id = ' + game_id);
     // Store the game_id globally so other functions can access it
     window.currentGameId = game_id;

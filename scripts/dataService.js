@@ -4,6 +4,9 @@ class DataService {
     }
 
     async loadJSON(path) {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('loadJSON');
+        }
         if (this.cache[path]) {
             return this.cache[path];
         }
@@ -23,6 +26,9 @@ class DataService {
     }
 
     async getCategories() {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('getCategories');
+        }
         const startTime = performance.now();
         const data = await this.loadJSON('quiz/index.json');
         const loadTime = performance.now() - startTime;
@@ -30,6 +36,9 @@ class DataService {
     }
 
     async getThemes(categoryId) {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('getThemes');
+        }
         const startTime = performance.now();
         
         // First get the category to find the folder
@@ -49,6 +58,9 @@ class DataService {
     }
 
     async getQuestions(themeId) {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('getQuestions');
+        }
         const startTime = performance.now();
         
         try {
@@ -104,10 +116,16 @@ class DataService {
     }
 
     async getQuestionsWithAnswers(themeId) {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('getQuestionsWithAnswers');
+        }
         return this.getQuestions(themeId);
     }
 
     async getQuestionSummary(questionId) {
+        if (localStorage.getItem('debug') === '1') {
+            console.log('getQuestionSummary');
+        }
         const startTime = performance.now();
         
         // Search through all categories and themes to find the question

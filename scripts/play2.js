@@ -1,5 +1,8 @@
 function continueGame(qnNum)
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('continueGame');
+    }
     //starts preformanse monitor
     var t0 = performance.now();
 

@@ -1,5 +1,8 @@
 function start()
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('start');
+    }
     //starts preformanse timer
 var t0 = performance.now();
 document.getElementById("main").innerHTML = "<p>Laster inn kategorier...</p>";

@@ -5,6 +5,9 @@ let currentGameId = null;
 let userAnswers = [];
 
 async function startGame(gameId) {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('startGame');
+    }
     currentGameId = gameId || currentGameId;
     console.log('Starting game with ID:', currentGameId);
     
@@ -38,6 +41,9 @@ async function startGame(gameId) {
 }
 
 async function loadQuestionsDirectly() {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('loadQuestionsDirectly');
+    }
     try {
         const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
         const data = await response.json();
@@ -54,6 +60,9 @@ async function loadQuestionsDirectly() {
 }
 
 function displayQuestion(question) {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('displayQuestion');
+    }
     const main = document.getElementById('main');
     
     let optionsHtml = '';
@@ -80,6 +89,9 @@ function displayQuestion(question) {
 }
 
 function checkAnswer(userChoice) {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('checkAnswer');
+    }
     const isCorrect = userChoice === currentQuestion.answer;
     
     // Store user answer
@@ -100,6 +112,9 @@ function checkAnswer(userChoice) {
 
 
 function showFeedback(correct, userChoice) {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('showFeedback');
+    }
     const feedbackDiv = document.getElementById('feedback');
     const correctAnswer = currentQuestion.answer;
     const correctText = currentQuestion.options[correctAnswer - 1];
@@ -129,6 +144,9 @@ function showFeedback(correct, userChoice) {
 }
 
 function nextQuestion() {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('nextQuestion');
+    }
     currentQuestionIndex++;
     if (currentQuestionIndex < gameQuestions.length) {
         currentQuestion = gameQuestions[currentQuestionIndex];
@@ -139,6 +157,9 @@ function nextQuestion() {
 }
 
 function endGame() {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('endGame');
+    }
     const endTime = Date.now();
     const startTime = parseInt(localStorage.getItem('gameStartTime'));
     const duration = endTime - startTime;

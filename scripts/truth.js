@@ -1,5 +1,8 @@
 function fax(truFal)
 {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('fax');
+    }
     //starts preformanse monitor
     var t0 = performance.now();
     //gets data from local storage

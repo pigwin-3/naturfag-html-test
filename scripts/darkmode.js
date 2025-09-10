@@ -3,9 +3,15 @@ function setCookie(cname,cvalue,exdays) {
     d.setTime(d.getTime() + (exdays*24*60*60*1000));
     let expires = "expires=" + d.toUTCString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    if (localStorage.getItem('debug') === '1') {
+        console.log('setCookie');
+    }
 }
 
 function getCookie(cname) {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('getCookie');
+    }
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -23,6 +29,9 @@ function getCookie(cname) {
 
 
 function checkTheme() {
+    if (localStorage.getItem('debug') === '1') {
+        console.log('checkTheme');
+    }
     let theme = getCookie("theTheme");
     if (theme != "") {
         console.log("theme " + theme);
