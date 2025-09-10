@@ -3,22 +3,28 @@
     {
       "qnID": 1,
       "themeID": 1,
-      "qn": "Er biologisk mangfold viktig for økosystemtjenester som rent vann?",
-      "trufal": "1",
-      "fact": "Biologisk mangfold bidrar til økosystemtjenester som rent vann, mat og klimaregulering.",
-      "img": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%234CAF50'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>Biologisk mangfold</text></svg>",
-      "srcimg": "Illustrasjon",
-      "srcfact": "Fagbok i naturfag"
+      "qn": "Hva er hovedårsaken til redusert biologisk mangfold i vann?",
+      "options": [
+        "Økt lufttemperatur",
+        "Forurensning",
+        "Fisking",
+        "Rekreasjon"
+      ],
+      "answer": 2,
+      "explanation": "Forurensning er hovedårsaken til redusert biologisk mangfold i vann fordi det endrer vannkvaliteten og ødelegger leveområder for vannlevende organismer."
     },
     {
       "qnID": 2,
       "themeID": 1,
-      "qn": "Er anbefalt pH-verdi for drikkevann mellom 6,5 og 8,5?",
-      "trufal": "1",
-      "fact": "Anbefalt pH for drikkevann er mellom 6,5 og 8,5 for å unngå korrosjon og helseskader.",
-      "img": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='200'><rect width='300' height='200' fill='%232196F3'/><text x='150' y='100' text-anchor='middle' fill='white' font-size='20'>pH-måling</text></svg>",
-      "srcimg": "Illustrasjon",
-      "srcfact": "Fagbok i naturfag"
+      "qn": "Hvilket pH-område er optimalt for drikkevann?",
+      "options": [
+        "3.0 - 5.0",
+        "5.0 - 6.0",
+        "6.5 - 8.5",
+        "9.0 - 11.0"
+      ],
+      "answer": 3,
+      "explanation": "pH-verdier mellom 6.5 og 8.5 er optimale for drikkevann. Lavere verdier kan føre til korrosjon av rør, og høyere verdier kan gi vannet en bitter smak."
     }
   ]
 }

@@ -385,6 +385,119 @@ body{
     line-height: 3vh;
     font-size: 2.5vh;
 }
+/* Multiple choice options container */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 2vh auto;
+}
+
+.option-btn {
+    margin: 0.8vh 0;
+    padding: 1.5vh 2vh;
+    border-radius: 1.5vh;
+    font-size: 2.8vh;
+    text-align: left;
+    background-color: rgba(240, 240, 240, 0.9);
+    color: #333;
+    border: 0.3vh solid #ddd;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-btn:hover {
+    background-color: rgba(220, 220, 220, 0.9);
+}
+
+/* Feedback section */
+.feedback-container {
+    width: 80%;
+    margin: 3vh auto;
+    min-height: 10vh;
+}
+
+.feedback {
+    padding: 2vh;
+    border-radius: 1.5vh;
+    text-align: left;
+}
+
+.feedback h3 {
+    font-size: 3.5vh;
+    margin-bottom: 1vh;
+}
+
+.feedback p {
+    font-size: 2.5vh;
+    margin-bottom: 2vh;
+}
+
+.feedback.correct {
+    background-color: rgba(200, 255, 200, 0.8);
+    color: #1b5e20;
+    border: 0.3vh solid #81c784;
+}
+
+.feedback.incorrect {
+    background-color: rgba(255, 200, 200, 0.8);
+    color: #b71c1c;
+    border: 0.3vh solid #ef9a9a;
+}
+
+.next-btn {
+    float: right;
+    font-size: 2.5vh;
+    padding: 1vh 2vh;
+    border-radius: 1vh;
+    background-color: #e0e0e0;
+    color: #333;
+    border: 0.2vh solid #bdbdbd;
+    cursor: pointer;
+}
+
+/* Summary styling */
+.question-summary {
+    background-color: rgba(240, 240, 240, 0.7);
+    border-radius: 1.5vh;
+    padding: 2vh;
+    margin-bottom: 2vh;
+}
+
+.question-text {
+    font-size: 2.8vh;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+
+.answer-details {
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh 0;
+    font-size: 2.2vh;
+}
+
+.explanation {
+    font-size: 2vh;
+    font-style: italic;
+    margin-top: 1vh;
+}
+
+/* Media queries for responsiveness */
+@media all and (max-width: 80vh) {
+    .option-btn {
+        font-size: 2.5vh;
+        padding: 1vh;
+    }
+    
+    .feedback h3 {
+        font-size: 3vh;
+    }
+    
+    .feedback p {
+        font-size: 2vh;
+    }
+}
 @media  all and (max-width: 175vh) {
     .statement{
         font-size: 5vh;
