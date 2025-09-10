@@ -40,3 +40,85 @@ function startPracticeGame(theme_id)
             }
         );
 }
+
+async function startPractice() {
+    console.log('Starting practice for game id:', gameId);
+    
+    try {
+        // Load question data locally
+        const response = await fetch(`quiz/${themeId}/${themes[gameId - 1].file}`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        
+        if (data.questions && data.questions.length > 0) {
+            practiceQuestions = data.questions;
+            currentPracticeIndex = 0;
+            displayPracticeQuestion(practiceQuestions[currentPracticeIndex]);
+        } else {
+            console.error('No questions found in practice data');
+        }
+    } catch (error) {
+        console.error('Error loading practice questions:', error);
+    }
+}
+
+function displayPracticeQuestion(question) {
+    const main = document.getElementById('main');
+    main.innerHTML = `
+        <div class="practice-container">
+            <h2>Øvelse - Spørsmål ${currentPracticeIndex + 1} av ${practiceQuestions.length}</h2>
+            <div class="question">${question.qn}</div>
+            <div class="question-image">
+                <img src="${question.img}" alt="${question.srcimg}">
+                <p class="image-source">${question.srcimg}</p>
+            </div>
+            <div class="answer-buttons">
+                <button onclick="checkPracticeAnswer(true)" class="answer-btn true-btn">Sant</button>
+                <button onclick="checkPracticeAnswer(false)" class="answer-btn false-btn">Usant</button>
+            </div>
+        </div>
+    `;
+}
+
+function checkPracticeAnswer(userAnswer) {
+    const correct = practiceQuestions[currentPracticeIndex].trufal === "1";
+    const isCorrect = userAnswer === correct;
+    
+    showPracticeFeedback(isCorrect, practiceQuestions[currentPracticeIndex].fact);
+}
+
+function showPracticeFeedback(correct, fact) {
+    const main = document.getElementById('main');
+    main.innerHTML = `
+        <div class="feedback-container">
+            <h2>${correct ? 'Riktig!' : 'Feil!'}</h2>
+            <p class="fact">${fact}</p>
+            <p class="fact-source">Kilde: ${practiceQuestions[currentPracticeIndex].srcfact}</p>
+            <button onclick="nextPracticeQuestion()" class="next-btn">
+                ${currentPracticeIndex < practiceQuestions.length - 1 ? 'Neste spørsmål' : 'Avslutt øvelse'}
+            </button>
+        </div>
+    `;
+}
+
+function nextPracticeQuestion() {
+    currentPracticeIndex++;
+    if (currentPracticeIndex < practiceQuestions.length) {
+        displayPracticeQuestion(practiceQuestions[currentPracticeIndex]);
+    } else {
+        endPractice();
+    }
+}
+
+function endPractice() {
+    const main = document.getElementById('main');
+    main.innerHTML = `
+        <div class="practice-summary">
+            <h2>Øvelse ferdig!</h2>
+            <p>Du har gått gjennom alle spørsmålene i dette temaet.</p>
+            <button onclick="start()" class="home-btn">Tilbake til start</button>
+        </div>
+    `;
+}
