@@ -10,7 +10,7 @@ dataService.getCategories()
         console.log('loaded categories in ' + loadTime + ' ms');
         if (data.length > 0) {
             //makes the top of the website
-            var Temp = '<div class="title">Feilinfo</div><div class="top1">';
+            var Temp = '<div class="title">Naturfag greier</div><div class="top1">';
             //repeats this until all of the data is in boxes
             data.forEach((itemData) => {
                 Temp += '<div class="box">';
