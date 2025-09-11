@@ -25,6 +25,8 @@ async function startGame(gameId) {
         const questionsData = await window.dataService.getQuestions(currentGameId);
         gameQuestions = questionsData.slice(0, -1); // Remove timing data
 
+        // Shuffle questions randomly
+        gameQuestions = shuffleArray(gameQuestions);
         
         if (gameQuestions && gameQuestions.length > 0) {
             currentQuestionIndex = 0;
@@ -49,6 +51,9 @@ async function loadQuestionsDirectly() {
         const data = await response.json();
         gameQuestions = data.questions;
         
+        // Shuffle questions randomly
+        gameQuestions = shuffleArray(gameQuestions);
+        
         if (gameQuestions && gameQuestions.length > 0) {
             currentQuestionIndex = 0;
             currentQuestion = gameQuestions[currentQuestionIndex];
@@ -57,6 +62,16 @@ async function loadQuestionsDirectly() {
     } catch (error) {
         console.error('Error loading questions directly:', error);
     }
+}
+
+// Add this new function to shuffle the array
+function shuffleArray(array) {
+    const shuffled = [...array]; // Create a copy to avoid modifying original
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
 }
 
 function displayQuestion(question) {
