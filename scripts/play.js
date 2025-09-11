@@ -94,6 +94,32 @@ function checkAnswer(userChoice) {
     }
     const isCorrect = userChoice === currentQuestion.answer;
     
+    // Disable all option buttons
+    const optionBtns = document.querySelectorAll('.option-btn');
+    optionBtns.forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = 'not-allowed';
+    });
+    
+    // Highlight the selected answer
+    const selectedBtn = optionBtns[userChoice - 1];
+    if (isCorrect) {
+        // Correct answer: blue outline and green background
+        selectedBtn.style.border = '4px solid blue';
+        selectedBtn.style.backgroundColor = 'green';
+        selectedBtn.style.color = 'white';
+    } else {
+        // Wrong answer: blue outline and red background
+        selectedBtn.style.border = '4px solid blue';
+        selectedBtn.style.backgroundColor = 'red';
+        selectedBtn.style.color = 'white';
+        
+        // Also highlight the correct answer in green
+        const correctBtn = optionBtns[currentQuestion.answer - 1];
+        correctBtn.style.backgroundColor = 'green';
+        correctBtn.style.color = 'white';
+    }
+    
     // Store user answer
     userAnswers.push({
         questionId: currentQuestion.qnID,
