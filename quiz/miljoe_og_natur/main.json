@@ -2,7 +2,7 @@
   "themes": [
     {
       "ID": 1,
-      "categoryID": 1,
+      "categoryID": "miljoe_og_natur",
       "Name": "Vannkvalitet og Miljø",
       "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",
       "qn": 1,
@@ -10,7 +10,7 @@
     },
     {
       "ID": 2,
-      "categoryID": 1,
+      "categoryID": "miljoe_og_natur",
       "Name": "Prosjekt midtsjø",
       "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",
       "qn": 2,
