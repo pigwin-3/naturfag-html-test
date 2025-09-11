@@ -3,6 +3,7 @@ let gameQuestions = [];
 let currentQuestionIndex = 0;
 let currentGameId = null;
 let userAnswers = [];
+let keyboardListenerActive = false;
 
 async function startGame(gameId) {
     if (localStorage.getItem('debug') === '1') {
@@ -90,6 +91,57 @@ async function loadQuestionsDirectly() {
     }
 }
 
+// Add keyboard event listener
+function setupKeyboardListeners() {
+    // Remove existing listener if any
+    document.removeEventListener('keydown', handleKeyPress);
+    // Add new listener
+    document.addEventListener('keydown', handleKeyPress);
+    keyboardListenerActive = true;
+}
+
+function removeKeyboardListeners() {
+    document.removeEventListener('keydown', handleKeyPress);
+    keyboardListenerActive = false;
+}
+
+function handleKeyPress(event) {
+    if (!keyboardListenerActive) return;
+    
+    const key = event.key;
+    
+    // Handle number keys for options (1, 2, 3, 4, etc.)
+    if (key >= '1' && key <= '9') {
+        const optionNumber = parseInt(key);
+        if (currentQuestion && currentQuestion.options && optionNumber <= currentQuestion.options.length) {
+            // Check if buttons are still enabled (haven't answered yet)
+            const optionBtns = document.querySelectorAll('.option-btn');
+            if (optionBtns.length > 0 && !optionBtns[0].disabled) {
+                checkAnswer(optionNumber);
+                event.preventDefault();
+            }
+        }
+    }
+    
+    // Handle Enter key for next question
+    if (key === 'Enter') {
+        const nextBtn = document.querySelector('.next-btn');
+        if (nextBtn) {
+            nextBtn.click();
+            event.preventDefault();
+        }
+    }
+    
+    // Handle Escape key to go to main menu
+    if (key === 'Escape') {
+        if (confirm('Er du sikker på at du vil gå tilbake til hovedsiden? Fremgangen din vil gå tapt.')) {
+            removeKeyboardListeners();
+            start();
+        }
+        event.preventDefault();
+    }
+}
+
 // Add this new function to shuffle the array
 function shuffleArray(array) {
     const shuffled = [...array]; // Create a copy to avoid modifying original
@@ -106,11 +158,15 @@ function displayQuestion(question) {
     }
     const main = document.getElementById('main');
     
+    // Setup keyboard listeners when displaying a question
+    setupKeyboardListeners();
+    
     let optionsHtml = '';
     question.options.forEach((option, index) => {
+        const keyNumber = index + 1;
         optionsHtml += `
-            <button class="option-btn" onclick="checkAnswer(${index + 1})">
-                ${index + 1}: ${option}
+            <button class="option-btn" onclick="checkAnswer(${keyNumber})" data-key="${keyNumber}">
+                <span class="option-key">${keyNumber}</span>: ${option}
             </button>
         `;
     });
@@ -125,7 +181,10 @@ function displayQuestion(question) {
 
         </div>
         <div class="feedback-container" id="feedback"></div>
-        <div class="bottom">Spørsmål ${currentQuestionIndex + 1} av ${gameQuestions.length}</div>
+        <div class="bottom">
+            Spørsmål ${currentQuestionIndex + 1} av ${gameQuestions.length}
+            <div class="keyboard-hint">Bruk tastene 1-${question.options.length} for å svare, Enter for neste</div>
+        </div>
     `;
 }
 
@@ -192,7 +251,7 @@ function showFeedback(correct, userChoice) {
                 <h3>Riktig!</h3>
                 <p>${currentQuestion.explanation}</p>
                 <button class="next-btn" onclick="${currentQuestionIndex < gameQuestions.length - 1 ? 'nextQuestion()' : 'endGame()'}">
-                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'}
+                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'} <span class="key-hint">(Enter)</span>
                 </button>
             </div>
         `;
@@ -203,7 +262,7 @@ function showFeedback(correct, userChoice) {
                 <p>Det riktige svaret er ${correctAnswer}: ${correctText}</p>
                 <p>${currentQuestion.explanation}</p>
                 <button class="next-btn" onclick="${currentQuestionIndex < gameQuestions.length - 1 ? 'nextQuestion()' : 'endGame()'}">
-                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'}
+                    ${currentQuestionIndex < gameQuestions.length - 1 ? 'Neste' : 'Ferdig'} <span class="key-hint">(Enter)</span>
                 </button>
             </div>
         `;
@@ -227,6 +286,10 @@ function endGame() {
     if (localStorage.getItem('debug') === '1') {
         console.log('endGame');
     }
+    
+    // Remove keyboard listeners when game ends
+    removeKeyboardListeners();
+    
     const endTime = Date.now();
     const startTime = parseInt(localStorage.getItem('gameStartTime'));
     const duration = endTime - startTime;
