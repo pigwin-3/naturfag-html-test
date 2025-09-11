@@ -3,7 +3,8 @@
     {
       "ID": "miljoe_og_natur",
       "Name": "Miljø og Natur",
-      "about": "Spørsmål om biologisk mangfold, vannkvalitet og miljøgifter"
+      "about": "Spørsmål om biologisk mangfold, vannkvalitet og miljøgifter",
+      "folder": "miljoe_og_natur"
     }
   ]
 }

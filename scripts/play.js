@@ -47,21 +47,33 @@ async function loadQuestionsDirectly() {
         console.log('loadQuestionsDirectly');
     }
     try {
-        // Get the theme data to find the correct file
-        const themesData = await window.dataService.getThemes(1); // Category ID 1 for miljoe_og_natur
-        const themes = themesData.slice(0, -1); // Remove timing data
+        // Find which category contains our theme ID
+        const categoriesData = await window.dataService.loadJSON('quiz/index.json');
+        let categoryFolder = null;
+        let selectedTheme = null;
         
-        // Find the theme that matches currentGameId
-        const selectedTheme = themes.find(theme => theme.ID == currentGameId);
+        // Search through all categories to find the theme
+        for (const category of categoriesData.categories) {
+            try {
+                const themesData = await window.dataService.loadJSON(`quiz/${category.folder || category.ID}/main.json`);
+                const theme = themesData.themes.find(theme => theme.ID == currentGameId);
+                if (theme) {
+                    selectedTheme = theme;
+                    categoryFolder = category.folder || category.ID;
+                    break;
+                }
+            } catch (error) {
+                console.warn(`Could not load themes for category ${category.ID}:`, error);
+            }
+        }
         
-        if (!selectedTheme) {
+        if (!selectedTheme || !categoryFolder) {
             console.error('Theme not found for ID:', currentGameId);
             return;
         }
         
         // Load the correct JSON file
-        // må også fjerne miljoe_og_natur/ fra pathen og fjeren hardkodingen
-        const response = await fetch(`quiz/miljoe_og_natur/${selectedTheme.file}`);
+        const response = await fetch(`quiz/${categoryFolder}/${selectedTheme.file}`);
         const data = await response.json();
         gameQuestions = data.questions;
         
