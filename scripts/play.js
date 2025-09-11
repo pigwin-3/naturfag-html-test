@@ -105,18 +105,18 @@ function checkAnswer(userChoice) {
     const selectedBtn = optionBtns[userChoice - 1];
     if (isCorrect) {
         // Correct answer: blue outline and green background
-        selectedBtn.style.border = '4px solid blue';
-        selectedBtn.style.backgroundColor = 'green';
+        selectedBtn.style.border = '4px solid #5e97a6';
+        selectedBtn.style.backgroundColor = '#5ea664';
         selectedBtn.style.color = 'white';
     } else {
         // Wrong answer: blue outline and red background
-        selectedBtn.style.border = '4px solid blue';
-        selectedBtn.style.backgroundColor = 'red';
+        selectedBtn.style.border = '4px solid #5e97a6';
+        selectedBtn.style.backgroundColor = '#a65e5e';
         selectedBtn.style.color = 'white';
-        
+
         // Also highlight the correct answer in green
         const correctBtn = optionBtns[currentQuestion.answer - 1];
-        correctBtn.style.backgroundColor = 'green';
+        correctBtn.style.backgroundColor = '#5ea664';
         correctBtn.style.color = 'white';
     }
     
