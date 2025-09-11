@@ -47,7 +47,21 @@ async function loadQuestionsDirectly() {
         console.log('loadQuestionsDirectly');
     }
     try {
-        const response = await fetch('quiz/miljoe_og_natur/vannkvalitet.json');
+        // Get the theme data to find the correct file
+        const themesData = await window.dataService.getThemes(1); // Category ID 1 for miljoe_og_natur
+        const themes = themesData.slice(0, -1); // Remove timing data
+        
+        // Find the theme that matches currentGameId
+        const selectedTheme = themes.find(theme => theme.ID == currentGameId);
+        
+        if (!selectedTheme) {
+            console.error('Theme not found for ID:', currentGameId);
+            return;
+        }
+        
+        // Load the correct JSON file
+        // må også fjerne miljoe_og_natur/ fra pathen og fjeren hardkodingen
+        const response = await fetch(`quiz/miljoe_og_natur/${selectedTheme.file}`);
         const data = await response.json();
         gameQuestions = data.questions;
         
