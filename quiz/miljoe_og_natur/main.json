@@ -1,14 +1,6 @@
 {
   "themes": [
     {
-      "ID": 1,
-      "categoryID": "miljoe_og_natur",
-      "Name": "Vannkvalitet og Miljø",
-      "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",
-      "qn": 1,
-      "file": "vannkvalitet.json"
-    },
-    {
       "ID": 2,
       "categoryID": "miljoe_og_natur",
       "Name": "Prosjekt midtsjø",
