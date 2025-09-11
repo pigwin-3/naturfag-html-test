@@ -1,4 +1,4 @@
-function themeGet(category_id) {
+async function themeGet(category_id) {
     if (localStorage.getItem('debug') === '1') {
         console.log('themeGet');
     }
