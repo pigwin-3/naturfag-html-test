@@ -68,6 +68,7 @@ class DataService {
             const categoriesData = await this.loadJSON('quiz/index.json');
             let themeFile = null;
             let categoryFolder = null;
+            let foundTheme = null;
             
             for (const category of categoriesData.categories) {
                 const themesData = await this.loadJSON(`quiz/${category.folder}/main.json`);
@@ -75,6 +76,7 @@ class DataService {
                 if (theme) {
                     themeFile = theme.file;
                     categoryFolder = category.folder;
+                    foundTheme = theme;
                     break;
                 }
             }
@@ -85,7 +87,8 @@ class DataService {
             
             // Load questions from the specific file
             const questionsData = await this.loadJSON(`quiz/${categoryFolder}/${themeFile}`);
-            let questions = questionsData.questions.filter(q => q.themeID == themeId);
+            // Don't filter by themeID - just return all questions from the file
+            let questions = questionsData.questions;
             
             // Ensure questions have the expected format (options, answer, explanation)
             questions = questions.map(q => {
