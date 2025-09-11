@@ -7,6 +7,14 @@
       "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",
       "qn": 1,
       "file": "vannkvalitet.json"
+    },
+    {
+      "ID": 2,
+      "categoryID": 1,
+      "Name": "Prosjekt midtsjø",
+      "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",
+      "qn": 1,
+      "file": "midsjo.json"
     }
   ]
 }
