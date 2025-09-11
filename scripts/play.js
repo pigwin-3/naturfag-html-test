@@ -105,12 +105,12 @@ function checkAnswer(userChoice) {
     const selectedBtn = optionBtns[userChoice - 1];
     if (isCorrect) {
         // Correct answer: blue outline and green background
-        selectedBtn.style.border = '4px solid #5e97a6';
+        selectedBtn.style.border = '4px solid #78dffa';
         selectedBtn.style.backgroundColor = '#5ea664';
         selectedBtn.style.color = 'white';
     } else {
         // Wrong answer: blue outline and red background
-        selectedBtn.style.border = '4px solid #5e97a6';
+        selectedBtn.style.border = '4px solid #78dffa';
         selectedBtn.style.backgroundColor = '#a65e5e';
         selectedBtn.style.color = 'white';
 
