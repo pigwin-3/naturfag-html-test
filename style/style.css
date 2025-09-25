@@ -60,7 +60,6 @@ body{
     text-align: center;
     font-size: 2.5vh;
 }
-/* for hovedside, katgori velging, spillsiden */
 .top1 {
     display: block;
     height: 75vh;
@@ -75,14 +74,10 @@ body{
 .top1::-webkit-scrollbar {
     display: none;
 }
-
-/* fjern den for IE, Edge og Firefox */
 .top1 {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
-
-/* for hovedside, katgori velging*/
 .box {
     display: flex;
     justify-content: center;
@@ -118,7 +113,6 @@ body{
     border-radius: 1.5vh;
     cursor: pointer;
 }
-/*for spillsiden*/
 .btn2 {
     font-size: 12vh;
     font-weight: 600;
@@ -134,8 +128,6 @@ body{
     cursor: pointer;
     transform: translateX(50%);
 }
-
-/* for spørsmålet, sanheten */
 .low{
     display: flex;
     flex-direction: row;
@@ -144,14 +136,6 @@ body{
     margin: auto;
     margin-top: 0%;
 }
-.imgsrc {
-    position: absolute;
-    bottom: 0;
-    border-radius: 0.5vh;
-    padding: 1px;
-    font-size: 2vh;
-}
-/* for spørsmålet*/
 .top2 {
     display: flex;
     justify-content: center;
@@ -162,135 +146,6 @@ body{
     margin: auto;
     margin-bottom: 0%;
     border-radius: 3vh;
-}
-.img{
-    position: relative;
-    height: 45vh;
-    width: 45vh;
-    max-width: 80%;
-    border-radius: 0.5vh;
-    background-size: cover;
-}
-.statement{
-    text-align: center;
-    padding: 1vh;
-    font-size: 5vh;
-    font-weight: 700;
-    margin-top: 0%;
-}
-.btntru{
-    margin-top: 0.50%;
-    border-radius: 1.5vh;
-    height: 95%;
-    width: 100%;
-    margin-left: 2.5%;
-    margin-right: 1.25%;
-    text-align: center;
-    font-size: 11vh;
-    font-weight: 500;
-    transition: 0.2s;
-    max-width: 92%;
-    cursor: pointer;
-}
-.btnfal{
-    margin-top: 0.50%;
-    border-radius: 1.5vh;
-    height: 95%;
-    width: 100%;
-    margin-left: 1.25%;
-    margin-right: 2.5%;
-    text-align: center;
-    font-size: 11vh;
-    font-weight: 500;
-    transition: 0.2s;
-    max-width: 92%;
-    cursor: pointer;
-}
-.progressbar {
-    display: flex;
-    flex-direction: row;
-    width: 60vw;
-    height: 5vh;
-    overflow: hidden;
-    border-radius: 1vh;
-    margin-top: 2vh;
-    align-self: center;
-}
-.progressbarcor {
-    height: 100%;
-}
-.progressbarwro {
-    height: 100%;
-}
-.progressbarprog {
-    height: 100%;
-}
-/*for sanheten*/
-.low2{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    height: 15vh;
-    width: 80%;
-    margin: auto;
-    margin-top: 0%;
-}
-.top3 {
-    display: flex;
-    justify-content: left;
-    flex-direction: row;
-    height: 70vh;
-    width: 80%;
-    margin: auto;
-    margin-bottom: 0%;
-    border-radius: 3vh;
-}
-.imgbox {
-    display: flex;
-    height: 80vh;
-    width: 60%;
-    justify-content: center;
-}
-.img2{
-    height: 65vh;
-    width: 65vh;
-    max-width: 45%;
-    position: absolute;
-    bottom: 25.9%;
-    border-radius: 2.5vh;
-    margin: auto;
-    margin-bottom: 2.5vh;
-}
-.fax{
-    height: 80vh;
-    width: 40%;  
-}
-.trufax{
-    font-size: 11vh;
-    font-weight: 750;
-    text-align: center;
-}
-.falfax{
-    font-size: 11vh;
-    font-weight: 750;
-    text-align: center;
-}
-/*.text brukes også i sumuery*/
-.text{
-    text-align-last: center;
-    font-size: 2.5vh;
-}
-.btnnex{
-    margin-top: 0.50%;
-    border-radius: 1.5vh;
-    height: 95%;
-    width: 40vh;
-    text-align: center;
-    font-size: 11vh;
-    font-weight: 500;
-    transition: 0.2s;
-    max-width: 92%;
-    cursor: pointer;
 }
 /*for sumuery*/
 .top4 {
