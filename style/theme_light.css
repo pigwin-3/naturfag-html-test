@@ -4,7 +4,6 @@
     background-color: #F5F3F4;
     color: #151515;
 }
-/* for hovedside, katgori velging, spillsiden */
 .top1 {
     background-color: #D3D3D3;
     border: 0.4vh solid #BA181B;
@@ -23,7 +22,6 @@
     border: 0.4vh solid #E5383B;
     background-color: #d9d9d9;
 }
-/*for spillsiden*/
 .btn2 {
     background-color: #F5F3F4;
     border: 0.4vh solid #BA181B;
@@ -33,71 +31,10 @@
     border: 0.4vh solid #E5383B;
     background-color: #d9d9d9;
 }
-.imgsrc {
-    background-color: rgba(250, 235, 215, 0.5);
-    color: #1d1d1d;
-}
-/* for spørsmålet*/
+
 .top2 {
     background-color: #D3D3D3;
     border: 0.4vh solid #BA181B;
-}
-.img{
-    background-color: #F5F3F4;
-}
-.btntru{
-    border: 0.4vh solid #269900;
-    background-color: #D3D3D3;
-    color: #1DB000;
-    color: #151515;
-}
-.btntru:hover {
-    border: 0.4vh solid #178b00;
-    background-color: #d9d9d9;
-}
-.btnfal{
-    border: 0.4vh solid #990000;
-    background-color: #D3D3D3;
-    color: #c00000;
-    color: #151515;
-}
-.btnfal:hover {
-border: 0.4vh solid #6a0000;
-background-color: #d9d9d9;
-}
-.progressbar {
-    background-color: #D3D3D3;
-}
-.progressbarcor {
-    background-color: #99ff00;
-}
-.progressbarwro {
-    background-color: #ff0000;
-}
-.progressbarprog {
-    background-color: #a98585;
-}
-.top3 {
-    background-color: #D3D3D3;
-    border: 0.4vh solid #BA181B;
-}
-.img2 {
-    background-color: #F5F3F4;
-}
-.trufax{
-    color: #1DB000;
-}
-.falfax{
-    color: #c00000;
-}
-.btnnex{
-    border: 0.4vh solid #BA181B;
-    background-color: #D3D3D3;
-    color: #151515;
-}
-.btnnex:hover {
-    border: 0.4vh solid #E5383B;
-    background-color: #d9d9d9;
 }
 .top4 {
     background-color: #D3D3D3;
@@ -114,9 +51,5 @@ background-color: #d9d9d9;
 }
 #result {
     background-color: #F5F3F4;
-    border: 0.4vh solid #BA181B;
-}
-.sumuary {
-    background-color: #D3D3D3;
     border: 0.4vh solid #BA181B;
 }
