@@ -53,25 +53,7 @@
         "Den sender ut gammastråling"
       ],
       "answer": 2,
-      "explanation": "Tydelig også en Alfa Male."
-    },
-    {
-      "qnID": 4,
-      "themeID": 4,
-      "qn": "PeriodicTABLE: Hvilket grunnstoff er vist i bildet?",
-      "media": {
-        "type": "image",
-        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Picnic_table_curves.jpg/640px-Picnic_table_curves.jpg",
-        "alt": "Grunnstoff fra periodesystemet på engelsk"
-      },
-      "options": [
-        "Uran",
-        "Thorium",
-        "Plutonium",
-        "Radium"
-      ],
-      "answer": 1,
-      "explanation": "Dette er uran (U), grunnstoff nummer 92 i periodesystemet."
+      "explanation": "Tydelig en Alfa Male."
     }
   ]
 }

@@ -372,7 +372,7 @@ function checkAnswer(userChoice) {
     if (isCorrect) {
         // Correct answer: blue outline and green background
         selectedBtn.style.border = '4px solid #78dffa';
-        selectedBtn.style.backgroundColor = '#5ea664';
+        selectedBtn.style.backgroundColor = '#2a652f';
         selectedBtn.style.color = 'white';
     } else {
         // Wrong answer: blue outline and red background
@@ -382,7 +382,7 @@ function checkAnswer(userChoice) {
 
         // Also highlight the correct answer in green
         const correctBtn = optionBtns[currentQuestion.answer - 1];
-        correctBtn.style.backgroundColor = '#5ea664';
+        correctBtn.style.backgroundColor = '#2a652f';
         correctBtn.style.color = 'white';
     }
     

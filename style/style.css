@@ -296,7 +296,7 @@ body{
 
 .feedback.incorrect {
     background-color: rgba(255, 200, 200, 0.8);
-    color: #b71c1c;
+    color: #510606;
     border: 0.3vh solid #ef9a9a;
 }
 
@@ -585,7 +585,7 @@ body{
 
 .key-hint {
     font-size: 1.8vh;
-    color: #888;
+    color: #474747;
 }
 
 /* Media queries for responsiveness */
