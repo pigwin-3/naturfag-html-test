@@ -120,3 +120,65 @@ background-color: #101010;
     background-color: #0b090a;
     border: 0.4vh solid #660708;
 }
+
+/* Dark mode support for media elements */
+.youtube-consent-box {
+    background-color: #1a1a2e;
+    border-color: #4285f4;
+}
+
+.consent-content h3,
+.consent-content p {
+    color: #f5f5f5;
+}
+
+.consent-note {
+    color: #aaa !important;
+}
+
+.youtube-link-box {
+    background-color: #2a2a1e;
+    border-color: #ff9800;
+}
+
+.youtube-link-box p {
+    color: #f5f5f5;
+}
+
+.consent-settings-overlay {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+.consent-settings-dialog {
+    background-color: #161a1d;
+    color: #f5f5f5;
+}
+
+.consent-settings-dialog h2 {
+    color: #f5f5f5;
+}
+
+.consent-setting-item {
+    background-color: rgba(11, 9, 10, 0.5);
+    border: 0.2vh solid #660708;
+}
+
+.consent-setting-item h3,
+.consent-setting-item p {
+    color: #f5f5f5;
+}
+
+.option-btn {
+    background-color: #0b090a;
+    border-color: #660708;
+    color: #f5f5f5;
+}
+
+.option-btn:hover {
+    background-color: #101010;
+}
+
+.question-summary {
+    background-color: rgba(11, 9, 10, 0.7);
+    border: 0.2vh solid #660708;
+}

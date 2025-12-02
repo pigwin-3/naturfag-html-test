@@ -7,6 +7,14 @@
       "about": "Test din kunnskap om radioaktivitet",
       "qn": 3,
       "file": "radioaktivitetv2.json"
+    },
+    {
+      "ID": 4,
+      "categoryID": "radioaktivitet",
+      "Name": "Test med media",
+      "about": "Test din kunnskap om Tester",
+      "qn": 4,
+      "file": "media_example.json"
     }
   ]
 }

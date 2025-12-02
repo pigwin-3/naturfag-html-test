@@ -152,6 +152,170 @@ function shuffleArray(array) {
     return shuffled;
 }
 
+// We got ok from user to show YT?
+function hasYouTubeConsent() {
+    return localStorage.getItem('youtubeConsent') === 'true';
+}
+
+// Set YouTube consent
+function setYouTubeConsent(allowed) {
+    localStorage.setItem('youtubeConsent', allowed.toString());
+}
+
+// Handle YouTube Ok
+function acceptYouTubeConsent(videoId, containerId) {
+    setYouTubeConsent(true);
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.innerHTML = renderYouTubeEmbed(videoId);
+    }
+}
+
+// Render YouTube
+function renderYouTubeEmbed(videoId) {
+    return `
+        <iframe 
+            class="question-youtube" 
+            src="https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen referrerpolicy="strict-origin-when-cross-origin">
+        </iframe>
+    `;
+}
+
+// YouTube video ID from URL
+function extractYouTubeId(url) {
+    let videoId = url;
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+        const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/);
+        videoId = match ? match[1] : videoId;
+    }
+    return videoId;
+}
+
+// Main meda function
+function renderMedia(question) {
+    if (!question.media) return '';
+    
+    let mediaHtml = '<div class="media-container">';
+    
+    if (question.media.type === 'image') {
+        mediaHtml += `<img src="${question.media.url}" alt="${question.media.alt || 'Question image'}" class="question-image">`;
+        if (question.media.caption) {
+            mediaHtml += `<p class="media-caption">${question.media.caption}</p>`;
+        }
+    } else if (question.media.type === 'video') {
+        mediaHtml += `
+            <video controls class="question-video">
+                <source src="${question.media.url}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        `;
+        if (question.media.caption) {
+            mediaHtml += `<p class="media-caption">${question.media.caption}</p>`;
+        }
+    } else if (question.media.type === 'youtube') {
+        const videoId = extractYouTubeId(question.media.url);
+        const containerId = `youtube-container-${currentQuestionIndex}`;
+        
+        if (hasYouTubeConsent()) {
+            // User has already consented, show the video
+            mediaHtml += `<div id="${containerId}">${renderYouTubeEmbed(videoId)}</div>`;
+        } else {
+            // Ask for consent
+            mediaHtml += `
+                <div id="${containerId}" class="youtube-consent-box">
+                    <div class="consent-content">
+                        <h3>🎥 YouTube-video</h3>
+                        <p>Denne quizen inneholder en YouTube-video. For å vise videoer fra YouTube må vi be om ditt samtykke.</p>
+                        <p><strong>Tillater du at denne nettsiden viser YouTube-videoer?</strong></p>
+                        <p class="consent-note">YouTube kan samle inn data om deg. Du kan endre dette valget senere.</p>
+                        <div class="consent-buttons">
+                            <button class="consent-btn consent-accept" onclick="acceptYouTubeConsent('${videoId}', '${containerId}')">
+                                ✓ Ja, tillat YouTube-videoer
+                            </button>
+                            <button class="consent-btn consent-decline" onclick="declineYouTubeConsent('${videoId}', '${containerId}')">
+                                ✗ Nei, vis bare lenke
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        if (question.media.caption) {
+            mediaHtml += `<p class="media-caption">${question.media.caption}</p>`;
+        }
+    }
+    
+    mediaHtml += '</div>';
+    return mediaHtml;
+}
+
+// Handle YouTube consent womp womp
+function declineYouTubeConsent(videoId, containerId) {
+    setYouTubeConsent(false);
+    const container = document.getElementById(containerId);
+    if (container) {
+        container.innerHTML = `
+            <div class="youtube-link-box">
+                <p>Se videoen på YouTube:</p>
+                <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="youtube-link">
+                    Åpne YouTube-video i ny fane
+                </a>
+                <p class="consent-change">
+                    <button class="consent-change-btn" onclick="openConsentSettings()">Endre samtykkeinnstillinger</button>
+                </p>
+            </div>
+        `;
+    }
+}
+
+// Open consent settings dialog
+function openConsentSettings() {
+    const currentConsent = hasYouTubeConsent();
+    const dialog = document.createElement('div');
+    dialog.className = 'consent-settings-overlay';
+    dialog.innerHTML = `
+        <div class="consent-settings-dialog">
+            <h2>Samtykkeinnstillinger</h2>
+            <div class="consent-setting-item">
+                <h3>YouTube-videoer</h3>
+                <p>Tillater nettsiden å vise innebygde YouTube-videoer.</p>
+                <p><strong>Nåværende status:</strong> ${currentConsent ? 'Tillatt' : 'Ikke tillatt'}</p>
+                <div class="consent-buttons">
+                    <button class="consent-btn consent-accept" onclick="updateConsentAndReload(true)">
+                        Tillat YouTube-videoer
+                    </button>
+                    <button class="consent-btn consent-decline" onclick="updateConsentAndReload(false)">
+                        ✗ 
+Ikke tillat
+                    </button>
+                </div>
+            </div>
+            <button class="consent-close-btn" onclick="closeConsentSettings()">Lukk</button>
+        </div>
+    `;
+    document.body.appendChild(dialog);
+}
+
+// Update consent and reload question
+function updateConsentAndReload(allowed) {
+    setYouTubeConsent(allowed);
+    closeConsentSettings();
+    // Reload the current question to reflect the new consent
+    displayQuestion(currentQuestion);
+}
+
+// Close consent settings dialog
+function closeConsentSettings() {
+    const overlay = document.querySelector('.consent-settings-overlay');
+    if (overlay) {
+        overlay.remove();
+    }
+}
+
 function displayQuestion(question) {
     if (localStorage.getItem('debug') === '1') {
         console.log('displayQuestion');
@@ -171,10 +335,12 @@ function displayQuestion(question) {
         `;
     });
     
+    const mediaHtml = renderMedia(question);
+    
     main.innerHTML = `
         <div class="top2">
             <div class="statement">${question.qn}</div>
-
+            ${mediaHtml}
         </div>
         <div class="options-container">
             ${optionsHtml}
