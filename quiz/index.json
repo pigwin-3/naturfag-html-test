@@ -5,6 +5,12 @@
       "Name": "Miljø og Natur",
       "about": "Spørsmål om biologisk mangfold, vannkvalitet og miljøgifter",
       "folder": "miljoe_og_natur"
+    },
+    {
+      "ID": "radioaktivitet",
+      "Name": "Radioaktivitet",
+      "about": "Spørsmål om Radioaktivitet",
+      "folder": "radioaktivitet"
     }
   ]
 }
