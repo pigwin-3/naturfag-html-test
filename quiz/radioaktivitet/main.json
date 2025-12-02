@@ -1,11 +1,11 @@
 {
   "themes": [
     {
-      "ID": 2,
+      "ID": 3,
       "categoryID": "radioaktivitet",
       "Name": "Radioaktivitet",
       "about": "Test din kunnskap om radioaktivitet",
-      "qn": 2,
+      "qn": 3,
       "file": "radioaktivitet.json"
     }
   ]
