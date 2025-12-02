@@ -1,7 +1,7 @@
 {
   "themes": [
     {
-      "ID": 2,
+      "ID": "miljoe_og_naturen",
       "categoryID": "miljoe_og_natur",
       "Name": "Prosjekt midtsjø",
       "about": "Test din kunnskap om vannkvalitet, miljøgifter og biologisk mangfold",

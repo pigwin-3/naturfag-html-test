@@ -2,7 +2,7 @@
   "questions": [
     {
       "qnID": 1,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en av hovedårsakene til at biologisk mangfold er viktig?",
       "options": [
         "Det gir oss tilgang til rent vann",
@@ -15,7 +15,7 @@
     },
     {
       "qnID": 2,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er anbefalt pH-verdi for drikkevann?",
       "options": [
         "4,0–5,0",
@@ -28,7 +28,7 @@
     },
     {
       "qnID": 3,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en miljøgift?",
       "options": [
         "Et stoff som alltid er naturlig",
@@ -41,7 +41,7 @@
     },
     {
       "qnID": 4,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er øvre grense for ammonium i drikkevann?",
       "options": [
         "0,05 mg/L",
@@ -54,7 +54,7 @@
     },
     {
       "qnID": 5,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig indikator på at vann er forurenset av avføring?",
       "options": [
         "Høyt nitratinnhold",
@@ -67,7 +67,7 @@
     },
     {
       "qnID": 6,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en fremmedart?",
       "options": [
         "En art som er naturlig hjemmehørende i Norge",
@@ -80,7 +80,7 @@
     },
     {
       "qnID": 7,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er hovedårsaken til at nitrat tilsettes i gjødsel?",
       "options": [
         "Det øker vannets pH",
@@ -93,7 +93,7 @@
     },
     {
       "qnID": 8,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er anbefalt øvre grense for nitritt i drikkevann?",
       "options": [
         "0,01 mg/L",
@@ -106,7 +106,7 @@
     },
     {
       "qnID": 9,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en produsent i et økosystem?",
       "options": [
         "Et dyr som spiser planter",
@@ -119,7 +119,7 @@
     },
     {
       "qnID": 10,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig funksjon til myrer?",
       "options": [
         "De øker nitrogeninnholdet i lufta",
@@ -132,7 +132,7 @@
     },
     {
       "qnID": 11,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva skjer når vann har høyt innhold av næringsstoffer som nitrat og fosfat?",
       "options": [
         "Vannet blir renere",
@@ -145,7 +145,7 @@
     },
     {
       "qnID": 12,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en konsekvens av å drenere myr?",
       "options": [
         "Økt karbonlagring",
@@ -158,7 +158,7 @@
     },
     {
       "qnID": 13,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en miljøgift som tidligere ble brukt som insektmiddel?",
       "options": [
         "PCB",
@@ -171,7 +171,7 @@
     },
     {
       "qnID": 14,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er hardhet i vann et mål på?",
       "options": [
         "Mengden oksygen i vannet",
@@ -184,7 +184,7 @@
     },
     {
       "qnID": 15,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til å bevare biologisk mangfold?",
       "options": [
         "Det gjør vannet hardere",
@@ -197,7 +197,7 @@
     },
     {
       "qnID": 16,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en indikatorart for rent vann?",
       "options": [
         "Røde fåbørstemark",
@@ -210,7 +210,7 @@
     },
     {
       "qnID": 17,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig forskjell mellom gift og miljøgift?",
       "options": [
         "Miljøgifter er alltid naturlige",
@@ -223,7 +223,7 @@
     },
     {
       "qnID": 18,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en konsekvens av innføring av fremmede arter?",
       "options": [
         "Økt biologisk mangfold",
@@ -236,7 +236,7 @@
     },
     {
       "qnID": 19,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er anbefalt øvre grense for nitrat i drikkevann?",
       "options": [
         "10 mg/L",
@@ -249,7 +249,7 @@
     },
     {
       "qnID": 20,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig årsak til at fosfat havner i vann?",
       "options": [
         "Luftforurensning",
@@ -262,7 +262,7 @@
     },
     {
       "qnID": 21,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at pH i vann kan bli lav?",
       "options": [
         "Høyt oksygeninnhold",
@@ -275,7 +275,7 @@
     },
     {
       "qnID": 22,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig effekt av PFAS?",
       "options": [
         "Brytes raskt ned i naturen",
@@ -288,7 +288,7 @@
     },
     {
       "qnID": 23,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at torv brukes som hagejord?",
       "options": [
         "Den er næringsrik",
@@ -301,7 +301,7 @@
     },
     {
       "qnID": 24,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig konsekvens av eutrofiering?",
       "options": [
         "Økt oksygeninnhold i vannet",
@@ -314,7 +314,7 @@
     },
     {
       "qnID": 25,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at vi fortsatt dyrker mat i Norge?",
       "options": [
         "For å redusere biologisk mangfold",
@@ -327,7 +327,7 @@
     },
     {
       "qnID": 26,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig forskjell mellom næringskjede og næringsnett?",
       "options": [
         "Næringskjede viser flere arter, næringsnett viser én",
@@ -340,7 +340,7 @@
     },
     {
       "qnID": 27,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at bly ble forbudt i bensin?",
       "options": [
         "Det økte drivstofforbruket",
@@ -353,7 +353,7 @@
     },
     {
       "qnID": 28,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at biologisk mangfold gir økosystemer stabilitet?",
       "options": [
         "Flere arter gjør økosystemet mer motstandsdyktig mot forstyrrelser",
@@ -366,7 +366,7 @@
     },
     {
       "qnID": 29,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva var en vanlig feilkilde ved nitrittmålingene under ekskursjonen?",
       "options": [
         "For høy temperatur i vannet",
@@ -379,7 +379,7 @@
     },
     {
       "qnID": 30,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hvorfor kan det være forskjell mellom pH målt med kjemisk test og pH-papir?",
       "options": [
         "Fordi pH-papir alltid viser høyere verdi",
@@ -392,7 +392,7 @@
     },
     {
       "qnID": 31,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hvilken parameter i klassifiseringsskjemaet sier noe om begroing på bunnen?",
       "options": [
         "Lukt",
@@ -405,7 +405,7 @@
     },
     {
       "qnID": 32,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva kjennetegner vann i kvalitetsklasse 1 (lite forurenset) når det gjelder lukt?",
       "options": [
         "Råtten, søt-emmen lukt",
@@ -418,7 +418,7 @@
     },
     {
       "qnID": 33,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Når ble PCB forbudt i Norge?",
       "options": [
         "1979",
@@ -431,7 +431,7 @@
     },
     {
       "qnID": 34,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er hovedmålet med den norske prioritetslisten for kjemikalier?",
       "options": [
         "Å redusere CO2-utslipp",
@@ -444,7 +444,7 @@
     },
     {
       "qnID": 35,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva skjer med karbonlagringen i myr når den dreneres?",
       "options": [
         "Karbonlagringen øker",
@@ -457,7 +457,7 @@
     },
     {
       "qnID": 36,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at torvuttak er problematisk for miljøet?",
       "options": [
         "Det øker pH i vannet",
@@ -470,7 +470,7 @@
     },
     {
       "qnID": 37,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig grunn til at internasjonalt samarbeid er nødvendig for å redusere miljøgifter?",
       "options": [
         "Fordi miljøgifter brytes raskt ned",
@@ -483,7 +483,7 @@
     },
     {
       "qnID": 38,
-      "themeID": 1,
+      "themeID": "miljoe_og_naturen",
       "qn": "Hva er en viktig forskjell mellom gift og miljøgift?",
       "options": [
         "Miljøgifter brytes raskt ned",

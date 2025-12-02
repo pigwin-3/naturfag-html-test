@@ -1,7 +1,7 @@
 {
   "themes": [
     {
-      "ID": 3,
+      "ID": "radioaktivitetv2",
       "categoryID": "radioaktivitet",
       "Name": "Radioaktivitet",
       "about": "Test din kunnskap om radioaktivitet",
@@ -9,11 +9,11 @@
       "file": "radioaktivitetv2.json"
     },
     {
-      "ID": 4,
+      "ID": "radioaktivitet_media",
       "categoryID": "radioaktivitet",
       "Name": "Test med media",
       "about": "Test din kunnskap om Tester",
-      "qn": 4,
+      "qn": "radioaktivitet_media",
       "file": "media_example.json"
     }
   ]

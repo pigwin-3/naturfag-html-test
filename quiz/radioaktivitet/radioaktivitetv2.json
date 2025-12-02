@@ -2,7 +2,7 @@
   "questions": [
     {
       "qnID": 1,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilket grunnstoff har 30 protoner i kjernen?",
       "options": [
         "Karbon (C)",
@@ -15,7 +15,7 @@
     },
     {
       "qnID": 2,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstid?",
       "options": [
         "Tiden det tar for et stoff å brytes ned",
@@ -28,7 +28,7 @@
     },
     {
       "qnID": 3,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er gammastråling?",
       "options": [
         "Partikkelstråling",
@@ -41,7 +41,7 @@
     },
     {
       "qnID": 4,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er ioniserende stråling?",
       "options": [
         "Stråling med lav energi",
@@ -54,7 +54,7 @@
     },
     {
       "qnID": 5,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er rødforskyvning?",
       "options": [
         "Når lysbølger stopper helt opp",
@@ -67,7 +67,7 @@
     },
     {
       "qnID": 6,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilket grunnstoff har 30 protoner i kjernen?",
       "options": [
         "Karbon (C)",
@@ -80,7 +80,7 @@
     },
     {
       "qnID": 7,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstid?",
       "options": [
         "Tiden det tar for et stoff å brytes ned",
@@ -93,7 +93,7 @@
     },
     {
       "qnID": 8,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er gammastråling?",
       "options": [
         "Partikkelstråling",
@@ -106,7 +106,7 @@
     },
     {
       "qnID": 9,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er ioniserende stråling?",
       "options": [
         "Stråling med lav energi",
@@ -119,7 +119,7 @@
     },
     {
       "qnID": 10,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er rødforskyvning?",
       "options": [
         "Når lysbølger stopper helt opp",
@@ -132,7 +132,7 @@
     },
     {
       "qnID": 11,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er et foton?",
       "options": [
         "En type atom",
@@ -145,7 +145,7 @@
     },
     {
       "qnID": 12,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva slags stråling sender den radioaktive kilden ut hvis ikke all strålingen blir stanset av papir, men derimot både av en treplate og en blyplate?",
       "options": [
         "Alfastråling",
@@ -157,7 +157,7 @@
     },
     {
       "qnID": 13,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvis halveringstiden for Ce-137 er 30 år, hvilken strålingsaktivitet hadde kilden for 90 år siden hvis den nå er 1000 Bq?",
       "options": [
         "500 Bq",
@@ -171,7 +171,7 @@
     },
     {
       "qnID": 14,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvor gammelt er et lårbein fra en moskusokse hvis innholdet av isotopen karbon-14 bare er om lag 25 % av det vi finner i en levende moskusokse? Karbon-14 har en halveringstid på 5730 år.",
       "options": [
         "1432 år",
@@ -185,7 +185,7 @@
     },
     {
       "qnID": 15,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Når Thorium-234 sender ut en betapartikkel, vil atomnummeret",
       "options": [
         "Ikke endres",
@@ -199,7 +199,7 @@
     },
     {
       "qnID": 16,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Når Radon-222 sender ut en alfapartikkel, vil atomnummeret",
       "options": [
         "Minskes med to",
@@ -213,7 +213,7 @@
     },
     {
       "qnID": 17,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Når Radon-222 sender ut gammastråling, vil atomnummeret",
       "options": [
         "Økes med en",
@@ -227,7 +227,7 @@
     },
     {
       "qnID": 18,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva kan man si om galaksene hvis lyset fra de fleste galakser er rødforskjøvet?",
       "options": [
         "Beveger seg mot oss",
@@ -240,7 +240,7 @@
     },
     {
       "qnID": 19,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva bestemmer protoner og nøytroner i atomene?",
       "options": [
         "Protoner bestemmer atomnummeret, nøytroner bestemmer isotopen",
@@ -253,7 +253,7 @@
     },
     {
       "qnID": 20,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstiden for et radioaktivt stoff som reduseres til 12,5 % av den opprinnelige massen i løpet av en time?",
       "options": [
         "15 minutter",
@@ -266,7 +266,7 @@
     },
     {
       "qnID": 21,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er Radon?",
       "options": [
         "En edelgass",
@@ -279,7 +279,7 @@
     },
     {
       "qnID": 22,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva brukes PET-scan til?",
       "options": [
         "Radioaktive markører som enten må bli svelget, inhalert eller injeksert i kroppen og kan derfor viser hvordan ulike vev eller organer i kroppen jobber på ett celle-nivå. Brukes for å diagnostisere kreft, hjerteproblemer eller hjerneproblemer",
@@ -292,7 +292,7 @@
     },
     {
       "qnID": 23,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva brukes CT-scan til?",
       "options": [
         "Røntgenundersøkelse der det blir tatt tverrsnittbilde av aktuelle områder i kroppen (bløtvev, blodårer, organer, bein og vev)",
@@ -305,7 +305,7 @@
     },
     {
       "qnID": 24,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er kosmisk bakgrunnstråling?",
       "options": [
         "Stråling fra solen",
@@ -318,7 +318,7 @@
     },
     {
       "qnID": 25,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er Big Bang teorien?",
       "options": [
         "Teorien om at universet alltid har eksistert",
@@ -331,7 +331,7 @@
     },
     {
       "qnID": 26,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilke observasjoner støtter Big Bang teorien?",
       "options": [
         "Rødforskyvning av galakser, kosmisk bakgrunnstråling, fordeling av grunnstoffer",
@@ -344,7 +344,7 @@
     },
     {
       "qnID": 27,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstiden til karbon-14?",
       "options": [
         "5730 år",
@@ -357,7 +357,7 @@
     },
     {
       "qnID": 28,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvorfor skal vi være redde for radon i huset vårt?",
       "options": [
         "Radon er en edelgass som kan forårsake eksplosjoner",
@@ -370,7 +370,7 @@
     },
     {
       "qnID": 29,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for radioaktivitet?",
       "options": [
         "Becquerel (Bq)",
@@ -383,7 +383,7 @@
     },
     {
       "qnID": 30,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for absorbert dose?",
       "options": [
         "Becquerel (Bq)",
@@ -396,7 +396,7 @@
     },
     {
       "qnID": 31,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for ekvivalent dose?",
       "options": [
         "Becquerel (Bq)",
@@ -409,7 +409,7 @@
     },
     {
       "qnID": 32,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for effektiv dose?",
       "options": [
         "Becquerel (Bq)",
@@ -422,7 +422,7 @@
     },
     {
       "qnID": 33,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er elektromagnetisk stråling?",
       "options": [
         "Stråling som består av partikler",
@@ -435,7 +435,7 @@
     },
     {
       "qnID": 34,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilken type stråling har høyest energi?",
       "options": [
         "Radiobølger",
@@ -448,7 +448,7 @@
     },
     {
       "qnID": 35,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstid?",
       "options": [
         "Tiden det tar for halvparten av atomene i et radioaktivt stoff å henfalle",
@@ -461,7 +461,7 @@
     },
     {
       "qnID": 36,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er trådløs kommunikasjon?",
       "options": [
         "Kommunikasjon som bruker kabler",
@@ -474,7 +474,7 @@
     },
     {
       "qnID": 37,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva brukes radiobølger til i trådløs kommunikasjon?",
       "options": [
         "Å sende og motta informasjon",
@@ -487,7 +487,7 @@
     },
     {
       "qnID": 38,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er en bølgelengde?",
       "options": [
         "Avstanden mellom to bølgetopper",
@@ -500,7 +500,7 @@
     },
     {
       "qnID": 39,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er frekvens?",
       "options": [
         "Avstanden mellom to bølgetopper",
@@ -513,7 +513,7 @@
     },
     {
       "qnID": 40,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er sammenhengen mellom bølgelengde og frekvens?",
       "options": [
         "De er uavhengige av hverandre",
@@ -526,7 +526,7 @@
     },
     {
       "qnID": 41,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er elektromagnetisk stråling?",
       "options": [
         "Stråling som består av partikler",
@@ -539,7 +539,7 @@
     },
     {
       "qnID": 42,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er ioniserende stråling?",
       "options": [
         "Stråling som kan ionisere atomer og molekyler",
@@ -552,7 +552,7 @@
     },
     {
       "qnID": 43,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er alfastråling?",
       "options": [
         "Stråling som består av elektroner",
@@ -565,7 +565,7 @@
     },
     {
       "qnID": 44,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er betastråling?",
       "options": [
         "Stråling som består av elektroner eller positroner",
@@ -578,7 +578,7 @@
     },
     {
       "qnID": 45,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er gammastråling?",
       "options": [
         "Stråling som består av elektroner",
@@ -591,7 +591,7 @@
     },
     {
       "qnID": 46,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilket grunnstoff har 30 protoner i kjernen?",
       "options": [
         "Karbon (C)",
@@ -604,7 +604,7 @@
     },
     {
       "qnID": 47,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er halveringstid?",
       "options": [
         "Tiden det tar for et stoff å brytes ned",
@@ -617,7 +617,7 @@
     },
     {
       "qnID": 48,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er gammastråling?",
       "options": [
         "Partikkelstråling",
@@ -630,7 +630,7 @@
     },
     {
       "qnID": 49,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er ioniserende stråling?",
       "options": [
         "Stråling med lav energi",
@@ -643,7 +643,7 @@
     },
     {
       "qnID": 50,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvorfor skal vi være redde for radon i huset vårt?",
       "options": [
         "Radon er en edelgass som kan forårsake eksplosjoner",
@@ -656,7 +656,7 @@
     },
     {
       "qnID": 51,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for radioaktivitet?",
       "options": [
         "Becquerel (Bq)",
@@ -669,7 +669,7 @@
     },
     {
       "qnID": 52,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for absorbert dose?",
       "options": [
         "Becquerel (Bq)",
@@ -682,7 +682,7 @@
     },
     {
       "qnID": 53,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for ekvivalent dose?",
       "options": [
         "Becquerel (Bq)",
@@ -695,7 +695,7 @@
     },
     {
       "qnID": 54,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er enheten for effektiv dose?",
       "options": [
         "Becquerel (Bq)",
@@ -708,7 +708,7 @@
     },
     {
       "qnID": 55,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er elektromagnetisk stråling?",
       "options": [
         "Stråling som består av partikler",
@@ -721,7 +721,7 @@
     },
     {
       "qnID": 56,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hvilken type stråling har høyest energi?",
       "options": [
         "Radiobølger",
@@ -734,7 +734,7 @@
     },
     {
       "qnID": 57,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er trådløs kommunikasjon?",
       "options": [
         "Kommunikasjon som bruker kabler",
@@ -747,7 +747,7 @@
     },
     {
       "qnID": 58,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva brukes radiobølger til i trådløs kommunikasjon?",
       "options": [
         "Å sende og motta informasjon",
@@ -760,7 +760,7 @@
     },
     {
       "qnID": 59,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er en bølgelengde?",
       "options": [
         "Avstanden mellom to bølgetopper",
@@ -773,7 +773,7 @@
     },
     {
       "qnID": 60,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er frekvens?",
       "options": [
         "Avstanden mellom to bølgetopper",
@@ -786,7 +786,7 @@
     },
     {
       "qnID": 61,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er sammenhengen mellom bølgelengde og frekvens?",
       "options": [
         "De er uavhengige av hverandre",
@@ -799,7 +799,7 @@
     },
     {
       "qnID": 62,
-      "themeID": 1,
+      "themeID": "radioaktivitetv2",
       "qn": "Hva er ioniserende stråling?",
       "options": [
         "Stråling som kan ionisere atomer og molekyler",

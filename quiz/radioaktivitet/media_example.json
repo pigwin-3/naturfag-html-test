@@ -2,7 +2,7 @@
   "questions": [
     {
       "qnID": 1,
-      "themeID": 4,
+      "themeID": "radioaktivitet_media",
       "qn": "Hva slags stråling vises i dette bildet?",
       "media": {
         "type": "image",
@@ -21,7 +21,7 @@
     },
     {
       "qnID": 2,
-      "themeID": 4,
+      "themeID": "radioaktivitet_media",
       "qn": "Se på videoen om radioaktivitet. Hva er hovedbudskapet?",
       "media": {
         "type": "youtube",
@@ -39,7 +39,7 @@
     },
     {
       "qnID": 3,
-      "themeID": 4,
+      "themeID": "radioaktivitet_media",
       "qn": "Se på denne videoen. Hva skjer med atomkjernen?",
       "media": {
         "type": "video",
@@ -54,6 +54,19 @@
       ],
       "answer": 2,
       "explanation": "Tydelig en Alfa Male."
+    },
+    {
+      "qnID": 4,
+      "themeID": "radioaktivitet_media",
+      "qn": "A",
+      "options": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "answer": 1,
+      "explanation": "Tydelig en A Male."
     }
   ]
 }
