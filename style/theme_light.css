@@ -53,3 +53,12 @@
     background-color: #F5F3F4;
     border: 0.4vh solid #BA181B;
 }
+.keyboard-hint {
+    color: #4d4d4d;
+}
+.option-key {
+    color: #404040;
+}
+.media-caption {
+    color: #4d4d4d;
+}

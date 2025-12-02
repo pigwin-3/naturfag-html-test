@@ -182,3 +182,12 @@ background-color: #101010;
     background-color: rgba(11, 9, 10, 0.7);
     border: 0.2vh solid #660708;
 }
+.keyboard-hint {
+    color: #adadad;
+}
+.option-key {
+    color: #a1a1a1;
+}
+.media-caption {
+    color: #adadad;
+}
