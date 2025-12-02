@@ -377,7 +377,7 @@ function checkAnswer(userChoice) {
     } else {
         // Wrong answer: blue outline and red background
         selectedBtn.style.border = '4px solid #78dffa';
-        selectedBtn.style.backgroundColor = '#a65e5e';
+        selectedBtn.style.backgroundColor = '#8a3d3d';
         selectedBtn.style.color = 'white';
 
         // Also highlight the correct answer in green
