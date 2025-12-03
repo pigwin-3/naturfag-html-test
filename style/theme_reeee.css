@@ -118,3 +118,73 @@ background-color: #B44C43;
     background-color: #332F2C;
     border: 0.4vh solid #A18594;
 }
+
+.youtube-consent-box {
+    background-color: #24a322;
+    border-color: #e61818;
+}
+
+.consent-content h3,
+.consent-content p {
+    color: #63355b;
+}
+
+.consent-note {
+    color: #9fd310 !important;
+}
+
+.youtube-link-box {
+    background-color: #0fb51a;
+    border-color: #ff0051;
+}
+
+.youtube-link-box p {
+    color: #00799a;
+}
+
+.consent-settings-overlay {
+    background-color: #ffcbcbd9;
+}
+
+.consent-settings-dialog {
+    background-color: #0567b1;
+    color: #f3a5a5;
+}
+
+.consent-settings-dialog h2 {
+    color: #c3ffd5;
+}
+
+.consent-setting-item {
+    background-color: rgba(178, 126, 152, 0.5);
+    border: 0.2vh solid #076633;
+}
+
+.consent-setting-item h3,
+.consent-setting-item p {
+    color: #dfccf4;
+}
+
+.option-btn {
+    background-color: #6c0036;
+    border-color: #bc3134;
+    color: #d4bfff;
+}
+
+.option-btn:hover {
+    background-color: #270101;
+}
+
+.question-summary {
+    background-color: rgba(60, 2, 31, 0.7);
+    border: 0.2vh solid #fff710;
+}
+.keyboard-hint {
+    color: #2db426;
+}
+.option-key {
+    color: #00cea5;
+}
+.media-caption {
+    color: #0e6a8f;
+}
