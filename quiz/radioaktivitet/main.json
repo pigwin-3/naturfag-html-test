@@ -3,18 +3,10 @@
     {
       "ID": "radioaktivitetv2",
       "categoryID": "radioaktivitet",
-      "Name": "Radioaktivitet",
+      "Name": "Radioaktivitet og Stråling",
       "about": "Test din kunnskap om radioaktivitet",
       "qn": 3,
       "file": "radioaktivitetv2.json"
-    },
-    {
-      "ID": "straling",
-      "categoryID": "radioaktivitet",
-      "Name": "Stråling",
-      "about": "Test din kunnskap om stråling",
-      "qn": "straling",
-      "file": "straling.json"
     },
     {
       "ID": "radioaktivitet_media",
