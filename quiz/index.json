@@ -8,8 +8,8 @@
     },
     {
       "ID": "radioaktivitet",
-      "Name": "Radioaktivitet",
-      "about": "Spørsmål om Radioaktivitet",
+      "Name": "Radioaktivitet og Stråling",
+      "about": "Spørsmål om Radioaktivitet og Stråling",
       "folder": "radioaktivitet"
     }
   ]
