@@ -9,6 +9,14 @@
       "file": "radioaktivitetv2.json"
     },
     {
+      "ID": "straling",
+      "categoryID": "radioaktivitet",
+      "Name": "Stråling",
+      "about": "Test din kunnskap om stråling",
+      "qn": "straling",
+      "file": "straling.json"
+    },
+    {
       "ID": "radioaktivitet_media",
       "categoryID": "radioaktivitet",
       "Name": "Test med media",
@@ -16,5 +24,6 @@
       "qn": "radioaktivitet_media",
       "file": "media_example.json"
     }
+
   ]
 }
