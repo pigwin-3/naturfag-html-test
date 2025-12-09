@@ -11,6 +11,12 @@
       "Name": "Radioaktivitet og Stråling",
       "about": "Spørsmål om Radioaktivitet og Stråling",
       "folder": "radioaktivitet"
+    },
+    {
+      "ID": "arv_og_evolusjon",
+      "Name": "Arv og evolusjon",
+      "about": "Spørsmål om Arv og evolusjon",
+      "folder": "arv_og_evolusjon"
     }
   ]
 }
